@@ -1,4 +1,4 @@
-<!doctype html><html lang="pt"><meta charset="utf-8"><meta name="viewport" content="width=device-width,initial-scale=1,viewport-fit=cover">
+<!doctype html><html lang="pt"><link rel="icon" href="data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 64 64'%3E%3Crect width='64' height='64' fill='%23181916'/%3E%3Ctext x='32' y='46' font-family='Georgia,serif' font-size='40' text-anchor='middle' fill='%23f4f3ee'%3EI%3C/text%3E%3C/svg%3E"><meta charset="utf-8"><meta name="viewport" content="width=device-width,initial-scale=1,viewport-fit=cover">
 <title>Poltrona giratória</title>
 <link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Instrument+Serif:ital@0;1&family=Hanken+Grotesk:wght@400;500;600&display=swap">
 <style>/* Montra pública. Layout: cabeçalho fino, hero com a peça em grande, coleção em cartões amplos, 3 passos, rodapé. */
@@ -18,7 +18,9 @@ body{margin:0;background:var(--bg);color:var(--ink);font:16px/1.6 var(--f-b);-we
 a{color:inherit}
 .wrap{max-width:1240px;margin:0 auto}
 .bar{display:flex;align-items:center;justify-content:space-between;gap:16px;padding-block:26px;border-bottom:1px solid var(--line)}
-.brand{font:400 26px/1 var(--f-d);letter-spacing:.02em;text-decoration:none}
+.brand{display:flex;align-items:baseline;gap:10px;text-decoration:none;white-space:nowrap}
+.lg1{font:400 28px/1 var(--f-d);letter-spacing:.2em;text-transform:uppercase}
+.lg2{font:italic 400 24px/1 var(--f-d);color:var(--accent)}
 .bar nav{display:flex;gap:26px;font-size:13px;letter-spacing:.14em;text-transform:uppercase}
 .bar nav a{text-decoration:none;color:var(--muted)}.bar nav a:hover{color:var(--ink)}
 .eyebrow{font-size:12px;letter-spacing:.2em;text-transform:uppercase;color:var(--accent);margin:0 0 18px}
@@ -94,7 +96,7 @@ dd{font-size:16px}
 @media(prefers-reduced-motion:reduce){*{transition:none!important;scroll-behavior:auto!important}}
 </style>
 <div class="wrap">
-<header class="bar"><a class="brand" href="index.html">Mobílias</a><nav><a href="index.html#colecao">Coleção</a><a href="#reuniao">Marcar reunião</a></nav></header>
+<header class="bar"><a class="brand" href="index.html"><span class="lg1">Indico</span><span class="lg2">Furniture</span></a><nav><a href="index.html#colecao">Coleção</a><a href="#reuniao">Marcar reunião</a></nav></header>
 <main class="piece">
 <div>
   <div class="v3" id="v3" role="img" aria-label="Vista 360 da peça, arraste para rodar"><img id="spin" alt="" draggable="false"><span class="vh" id="vh">arraste para rodar</span><div class="vb"><button type="button" id="sl" aria-label="Rodar para a esquerda">‹</button><button type="button" id="sr" aria-label="Rodar para a direita">›</button></div></div>
@@ -121,7 +123,7 @@ dd{font-size:16px}
 <p id="st" class="st" role="status"></p></form>
 </div>
 </main>
-<footer><div><b>Mobílias</b><br>Imagens ilustrativas, geradas por computador.</div><div><b>Contacto</b><br><a href="https://wa.me/258857566614">WhatsApp +258 85 756 6614</a></div></footer>
+<footer><div><b>Indico Furniture</b><br>Imagens ilustrativas, geradas por computador.</div><div><b>Contacto</b><br><a href="https://wa.me/258857566614">WhatsApp +258 85 756 6614</a></div></footer>
 </div>
 <script>
 const P={"code": "FR-001", "name": "Poltrona giratória", "whatsapp": "258857566614", "webhook": "", "booking": "", "groups": [{"id": "leather", "label": "Pele", "material": "Pele genuína de bovino.", "items": [{"name": "Ivory CG", "hex": "#E8E0CC"}, {"name": "Tan CG", "hex": "#A8693A"}, {"name": "Mocca Brown CG", "hex": "#5A3A29"}, {"name": "Dark Navy CG", "hex": "#1F2A44"}]}, {"id": "boucle", "label": "Bouclé", "material": "Bouclé, tecido texturado de poliéster, macio e resistente.", "items": [{"name": "Boucle 2 Off White", "hex": "#EFEBE1"}, {"name": "Boucle 2 Creamery", "hex": "#E9DFC8"}, {"name": "Boucle 2 Light Stone", "hex": "#CFC8BA"}, {"name": "Boucle 2 Charcoal", "hex": "#3B3D3F"}]}, {"id": "velvet", "label": "Veludo", "material": "Veludo de poliéster, macio e muito resistente ao uso.", "items": [{"name": "Plush Bone White", "hex": "#EDE7DA"}, {"name": "Plush Honey", "hex": "#C99A3C"}, {"name": "Plush Graphite", "hex": "#4A4D50"}, {"name": "Plush Peacock", "hex": "#1F6F78"}]}, {"id": "linen", "label": "Linho", "material": "Linho estampado.", "items": [{"name": "Claude Grey", "hex": "#8A8F93"}, {"name": "Claude Olive", "hex": "#6D6F3F"}, {"name": "Claude Terracotta", "hex": "#B2603F"}, {"name": "Adiantum Ochre", "hex": "#C69A3E"}]}], "start": [1, 0], "spin": {"frames": ["assets/FR-001/f0.jpg", "assets/FR-001/f1.jpg", "assets/FR-001/f2.jpg", "assets/FR-001/f3.jpg", "assets/FR-001/f4.jpg", "assets/FR-001/f5.jpg", "assets/FR-001/f6.jpg", "assets/FR-001/f7.jpg"], "fabric": "Bouclé, Boucle 2 Off White"}};
