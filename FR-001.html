@@ -32,7 +32,7 @@ h1 em,h2 em{font-style:italic}
 .btn{display:inline-flex;align-items:center;gap:10px;background:var(--btn);color:var(--btn-ink);border:1px solid var(--btn);padding:15px 28px;font:500 13px var(--f-b);letter-spacing:.16em;text-transform:uppercase;text-decoration:none;cursor:pointer;border-radius:0;transition:opacity .2s}
 .btn:hover{opacity:.82}.btn.ghost{background:transparent;color:var(--ink);border-color:var(--ink)}
 .btn:focus-visible,.chip:focus-visible,.tab:focus-visible,input:focus-visible,textarea:focus-visible,.vb button:focus-visible{outline:2px solid var(--accent);outline-offset:3px}
-@media(max-width:560px){.bar nav a:not(:last-child){display:none}}
+@media(max-width:560px){.bar nav a{display:none}}
 /* hero */
 .hero{display:grid;grid-template-columns:minmax(0,1fr) minmax(0,1.05fr);gap:56px;align-items:center;padding-block:72px 88px}
 .hero img{width:100%;aspect-ratio:4/5;object-fit:cover;display:block}
@@ -94,9 +94,36 @@ dd{font-size:16px}
 .rq .btn{margin-top:26px;justify-content:center}
 .st{margin:10px 0 0;font-size:14px;color:var(--muted)}
 @media(prefers-reduced-motion:reduce){*{transition:none!important;scroll-behavior:auto!important}}
+
+/* carrinho */
+.cartbtn{font:500 13px var(--f-b);letter-spacing:.14em;text-transform:uppercase;background:none;border:1px solid var(--ink);color:var(--ink);padding:9px 16px;cursor:pointer;display:inline-flex;gap:8px;align-items:center}
+.cartbtn .cartn{display:inline-grid;place-items:center;min-width:20px;height:20px;border-radius:10px;background:var(--ink);color:var(--bg);font-size:11px;letter-spacing:0}
+.addrow{display:flex;gap:12px;align-items:stretch;margin-top:22px;flex-wrap:wrap}
+.qty{display:inline-flex;border:1px solid var(--ink)}.qty button{width:44px;background:none;border:0;font-size:20px;color:var(--ink);cursor:pointer}.qty output{min-width:44px;display:grid;place-items:center;font-size:16px}
+.addrow .btn{flex:1;justify-content:center;min-width:200px}
+.pnote{font-size:13px;color:var(--muted);margin:10px 0 0}
+#cbk{position:fixed;inset:0;background:rgba(0,0,0,.45);z-index:60}
+#cdr{position:fixed;top:0;right:0;bottom:0;width:min(460px,100%);background:var(--bg);color:var(--ink);z-index:61;overflow-y:auto;padding:24px max(20px,env(safe-area-inset-right,0px)) 40px 24px;box-shadow:-10px 0 40px rgba(0,0,0,.2)}
+#cdr[hidden],#cbk[hidden]{display:none}
+#cdr .ch{display:flex;justify-content:space-between;align-items:center;border-bottom:1px solid var(--line);padding-bottom:14px;margin-bottom:14px}
+#cdr h2{font-size:32px}#cx{font-size:30px;line-height:1;background:none;border:0;color:var(--ink);cursor:pointer;padding:0 6px}
+.cn{font-size:14px;color:var(--muted);margin:8px 0}
+.cit{display:grid;grid-template-columns:34px 1fr auto auto;gap:12px;align-items:center;padding:12px 0;border-bottom:1px solid var(--line)}
+.cit>i{width:30px;height:30px;border-radius:50%;border:1px solid var(--line);display:block}
+.cin b{display:block;font-weight:500}.cin span{font-size:13px;color:var(--muted)}
+.cq{display:inline-flex;align-items:center;border:1px solid var(--line)}.cq button{width:30px;height:30px;background:none;border:0;font-size:18px;color:var(--ink);cursor:pointer}.cq output{min-width:26px;text-align:center}
+.crm{background:none;border:0;font-size:22px;color:var(--muted);cursor:pointer}
+#cf{display:grid;gap:4px;margin-top:18px}
+#cf label{font-size:12px;letter-spacing:.14em;text-transform:uppercase;color:var(--muted);margin-top:12px}
+#cf input,#cf textarea{font:inherit;color:var(--ink);background:transparent;border:0;border-bottom:1px solid var(--line);padding:9px 0;width:100%;border-radius:0}
+#cf input[type=file]{border:1px dashed var(--line);padding:12px;font-size:14px}
+#cf input:focus,#cf textarea:focus{border-bottom-color:var(--ink);outline:none}
+.ci{border:1px solid var(--line);padding:14px;margin:16px 0 0}.ci legend{padding:0 8px;font-size:14px}
+#cf .btn{margin-top:20px;justify-content:center}
+#cf .btn[disabled]{opacity:.5}
 </style>
 <div class="wrap">
-<header class="bar"><a class="brand" href="index.html"><span class="lg1">Indico</span><span class="lg2">Furniture</span></a><nav><a href="index.html#colecao">Coleção</a><a href="#reuniao">Marcar reunião</a></nav></header>
+<header class="bar"><a class="brand" href="index.html"><span class="lg1">Indico</span><span class="lg2">Furniture</span></a><nav><a href="index.html#colecao">Coleção</a><button type="button" class="cartbtn" data-cart-open>Pedido <span class="cartn">0</span></button></nav></header>
 <main class="piece">
 <div>
   <div class="v3" id="v3" role="img" aria-label="Vista 360 da peça, arraste para rodar"><img id="spin" alt="" draggable="false"><span class="vh" id="vh">arraste para rodar</span><div class="vb"><button type="button" id="sl" aria-label="Rodar para a esquerda">‹</button><button type="button" id="sr" aria-label="Rodar para a direita">›</button></div></div>
@@ -106,27 +133,114 @@ dd{font-size:16px}
 <div class="side">
 <p class="eyebrow">FR-001 · feita por medida</p>
 <h1 style="font-size:clamp(44px,5vw,72px)">Poltrona giratória</h1><p class="lead">Poltrona giratória em forma de barril, com costas e braços numa só parede envolvente e um assento fundo. Forrada a tecido bouclé.</p>
-<dl><dt>Medidas</dt><dd>cerca de 900 × 880 × 740 mm</dd><dt>Tecido</dt><dd>bouclé, branco-sujo (outras cores sob encomenda)</dd><dt>Base</dt><dd>giratória</dd><dt>Estado</dt><dd>protótipo</dd><dt>Imagens</dt><dd>ilustrativas, geradas por computador</dd></dl>
+<dl><dt>Medidas</dt><dd>cerca de 900 × 880 × 740 mm</dd><dt>Tecido</dt><dd>bouclé, branco-sujo (outras cores sob encomenda)</dd><dt>Base</dt><dd>giratória</dd><dt>Imagens</dt><dd>ilustrativas, geradas por computador</dd></dl>
 <section class="fab"><h2>O tecido</h2>
 <div class="tabs" id="tabs" role="group" aria-label="Material"></div>
 <p class="mat" id="mat"></p>
 <div class="sw" id="sw"></div>
 <p class="mat">Escolhido: <b id="chosen" style="color:var(--ink);font-weight:500"></b>. As cores no ecrã são aproximadas.</p></section>
-<form id="rq" class="rq" autocomplete="on"><h2 id="reuniao">Marque uma reunião</h2>
-<p class="mat" style="margin:6px 0 0">Para uma peça mais personalizada: medidas, tecido, cor ou outro modelo.</p>
-<label for="n">O seu nome</label><input id="n" required>
-<label for="t">WhatsApp ou telefone</label><input id="t" inputmode="tel" required>
-<label for="d">Dia e hora preferidos</label><input id="d" placeholder="ex. quinta, de manhã">
-<label for="m">O que quer personalizar? (opcional)</label><textarea id="m" rows="3"></textarea>
-<button class="btn" type="submit">Marcar reunião</button>
-<a id="book" class="btn ghost" style="display:none;margin-top:12px;justify-content:center" target="_blank" rel="noopener">Escolher horário no calendário</a>
-<p id="st" class="st" role="status"></p></form>
+<div class="addrow"><div class="qty" role="group" aria-label="Quantidade"><button type="button" id="qm" aria-label="Menos">−</button><output id="qv">1</output><button type="button" id="qp" aria-label="Mais">+</button></div><button type="button" class="btn" id="addc">Adicionar ao pedido</button></div>
+<p class="pnote">Sem pagamento agora. Envia o pedido e respondemos pessoalmente. Também pode <a href="#" data-cart-open>falar connosco ou marcar uma reunião</a>.</p>
 </div>
 </main>
+<script>/* Carrinho e pedido. Guarda no navegador, envia o pedido ao n8n (email imediato) e, se falhar, abre o WhatsApp. */
+(function(){
+  var CFG={"brand": "Indico Furniture", "webhook": "https://backend.automationbig8agency.com/webhook/indico-furniture-pedido", "whatsapp": "258857566614"};
+  var KEY='indico_cart_v1',MAX=5*1024*1024;
+  var items=[];
+  try{items=JSON.parse(localStorage.getItem(KEY)||'[]')}catch(e){items=[]}
+  function save(){try{localStorage.setItem(KEY,JSON.stringify(items))}catch(e){}}
+  function count(){return items.reduce(function(a,i){return a+i.qty},0)}
+  function esc(s){return String(s).replace(/&/g,'&amp;').replace(/</g,'&lt;').replace(/"/g,'&quot;')}
+
+  var d=document.createElement('div');d.id='cartwrap';
+  d.innerHTML='<div id="cbk" hidden></div><aside id="cdr" role="dialog" aria-modal="true" aria-labelledby="ctt" hidden>'+
+   '<div class="ch"><h2 id="ctt">O seu pedido</h2><button type="button" id="cx" aria-label="Fechar">×</button></div>'+
+   '<div id="cl"></div>'+
+   '<form id="cf" autocomplete="on"><p class="cn">Receberemos o pedido de imediato e respondemos pessoalmente. Pode também só falar connosco ou marcar uma reunião.</p>'+
+   '<label for="cn1">O seu nome</label><input id="cn1" required>'+
+   '<label for="cp">WhatsApp ou telefone</label><input id="cp" inputmode="tel" required>'+
+   '<label for="ce">Email (opcional)</label><input id="ce" type="email">'+
+   '<label for="cd">Dia e hora preferidos para uma reunião (opcional)</label><input id="cd" placeholder="ex. quinta, de manhã">'+
+   '<label for="cm">Mensagem (opcional)</label><textarea id="cm" rows="2"></textarea>'+
+   '<fieldset class="ci"><legend>Tem uma inspiração ou a peça dos seus sonhos?</legend>'+
+   '<p class="cn" style="margin:0 0 8px">Envie uma imagem e descreva-a em poucas palavras. Ajuda-nos a responder melhor.</p>'+
+   '<input id="cfile" type="file" accept="image/*"><span id="cfn" class="cn"></span>'+
+   '<label for="cnote">Descrição da inspiração</label><textarea id="cnote" rows="2" placeholder="ex. poltrona redonda, em veludo verde, para a minha sala"></textarea></fieldset>'+
+   '<input id="cw" name="website" tabindex="-1" autocomplete="off" aria-hidden="true" style="position:absolute;left:-9999px;opacity:0">'+
+   '<button class="btn" type="submit" id="cs">Enviar pedido</button><p id="cst" class="st" role="status"></p></form></aside>';
+  document.addEventListener('DOMContentLoaded',init);
+  if(document.readyState!=='loading')init();
+  var ready=false;
+  function init(){
+    if(ready)return;ready=true;document.body.appendChild(d);
+    var $=function(i){return document.getElementById(i)};
+    $('cx').onclick=close;$('cbk').onclick=close;
+    document.addEventListener('keydown',function(e){if(e.key==='Escape')close()});
+    document.querySelectorAll('[data-cart-open]').forEach(function(b){b.addEventListener('click',function(e){e.preventDefault();open()})});
+    $('cfile').onchange=function(){var f=this.files[0];if(!f){$('cfn').textContent='';return}
+      if(f.size>MAX){this.value='';$('cfn').textContent='A imagem tem mais de 5 MB. Escolha uma mais pequena.';return}
+      $('cfn').textContent=f.name};
+    $('cf').onsubmit=send;draw();
+  }
+  function $(i){return document.getElementById(i)}
+  function open(){$('cbk').hidden=false;$('cdr').hidden=false;document.body.style.overflow='hidden';setTimeout(function(){var f=$('cn1');if(f)f.focus()},50)}
+  function close(){$('cbk').hidden=true;$('cdr').hidden=true;document.body.style.overflow=''}
+  function draw(){
+    document.querySelectorAll('.cartn').forEach(function(n){n.textContent=count()});
+    var l=$('cl');if(!l)return;
+    if(!items.length){l.innerHTML='<p class="cn">O carrinho está vazio. Escolha uma peça, o tecido e a quantidade.</p>';return}
+    l.innerHTML=items.map(function(it,i){return '<div class="cit"><i style="background:'+esc(it.hex||'#ddd')+'"></i><div class="cin"><b>'+esc(it.name)+'</b><span>'+esc(it.fabric)+'</span></div>'+
+      '<div class="cq"><button type="button" data-q="-1" data-i="'+i+'" aria-label="Menos">−</button><output>'+it.qty+'</output><button type="button" data-q="1" data-i="'+i+'" aria-label="Mais">+</button></div>'+
+      '<button type="button" class="crm" data-r="'+i+'" aria-label="Remover">×</button></div>'}).join('');
+    l.querySelectorAll('[data-q]').forEach(function(b){b.onclick=function(){var it=items[+b.dataset.i];it.qty=Math.max(1,Math.min(20,it.qty+ +b.dataset.q));save();draw()}});
+    l.querySelectorAll('[data-r]').forEach(function(b){b.onclick=function(){items.splice(+b.dataset.r,1);save();draw()}});
+  }
+  window.Cart={
+    add:function(it){var f=items.find(function(x){return x.code===it.code&&x.fabric===it.fabric});
+      if(f)f.qty=Math.min(20,f.qty+it.qty);else items.push(it);save();draw();open()},
+    open:open
+  };
+  function msgText(v){
+    return ['Olá, quero fazer um pedido ao '+CFG.brand+':'].concat(items.map(function(i){return '- '+i.qty+' × '+i.name+' ('+i.code+'), '+i.fabric})).concat([v.message?'Mensagem: '+v.message:'',v.meeting?'Reunião: '+v.meeting:'',v.note?'Inspiração: '+v.note:'','Nome: '+v.name,'Contacto: '+v.phone]).filter(Boolean).join('\n');
+  }
+  async function send(ev){
+    ev.preventDefault();
+    var st=$('cst'),btn=$('cs');
+    var v={name:$('cn1').value.trim(),phone:$('cp').value.trim(),email:$('ce').value.trim(),meeting:$('cd').value.trim(),message:$('cm').value.trim(),note:$('cnote').value.trim()};
+    var file=$('cfile').files[0];
+    if(!items.length&&!v.message&&!v.note&&!file&&!v.meeting){st.textContent='Adicione uma peça ou escreva-nos uma mensagem.';return}
+    btn.disabled=true;st.textContent='A enviar...';
+    var ok=false;
+    if(CFG.webhook){
+      try{
+        var fd=new FormData();
+        fd.append('name',v.name);fd.append('phone',v.phone);fd.append('email',v.email);
+        fd.append('message',[v.message,v.meeting?'Reunião: '+v.meeting:''].filter(Boolean).join('\n'));
+        fd.append('inspiration_note',v.note);fd.append('website',$('cw').value);
+        fd.append('items',JSON.stringify(items.map(function(i){return {code:i.code,name:i.name,fabric:i.fabric,qty:i.qty}})));
+        fd.append('source',location.hostname||'furniture.indicostay.com');
+        if(location.hash==='#teste')fd.append('test','1');
+        if(file)fd.append('inspiration',file,file.name);
+        var r=await fetch(CFG.webhook,{method:'POST',body:fd});
+        ok=r.ok;
+      }catch(e){ok=false}
+    }
+    if(ok){
+      items=[];save();draw();$('cf').reset();$('cfn').textContent='';
+      st.textContent='Pedido enviado. Recebemo-lo agora e respondemos em breve.';
+    }else if(CFG.whatsapp){
+      window.open('https://wa.me/'+CFG.whatsapp+'?text='+encodeURIComponent(msgText(v)),'_blank');
+      st.textContent=file?'Abrimos o WhatsApp com o seu pedido. Envie lá também a imagem de inspiração.':'Abrimos o WhatsApp com o seu pedido. Carregue em enviar.';
+    }else{st.textContent='Não foi possível enviar. Tente mais tarde.'}
+    btn.disabled=false;
+  }
+})();
+</script>
 <footer><div><b>Indico Furniture</b><br>Imagens ilustrativas, geradas por computador.</div><div><b>Contacto</b><br><a href="https://wa.me/258857566614">WhatsApp +258 85 756 6614</a></div></footer>
 </div>
 <script>
-const P={"code": "FR-001", "name": "Poltrona giratória", "whatsapp": "258857566614", "webhook": "", "booking": "", "groups": [{"id": "leather", "label": "Pele", "material": "Pele genuína de bovino.", "items": [{"name": "Ivory CG", "hex": "#E8E0CC"}, {"name": "Tan CG", "hex": "#A8693A"}, {"name": "Mocca Brown CG", "hex": "#5A3A29"}, {"name": "Dark Navy CG", "hex": "#1F2A44"}]}, {"id": "boucle", "label": "Bouclé", "material": "Bouclé, tecido texturado de poliéster, macio e resistente.", "items": [{"name": "Boucle 2 Off White", "hex": "#EFEBE1"}, {"name": "Boucle 2 Creamery", "hex": "#E9DFC8"}, {"name": "Boucle 2 Light Stone", "hex": "#CFC8BA"}, {"name": "Boucle 2 Charcoal", "hex": "#3B3D3F"}]}, {"id": "velvet", "label": "Veludo", "material": "Veludo de poliéster, macio e muito resistente ao uso.", "items": [{"name": "Plush Bone White", "hex": "#EDE7DA"}, {"name": "Plush Honey", "hex": "#C99A3C"}, {"name": "Plush Graphite", "hex": "#4A4D50"}, {"name": "Plush Peacock", "hex": "#1F6F78"}]}, {"id": "linen", "label": "Linho", "material": "Linho estampado.", "items": [{"name": "Claude Grey", "hex": "#8A8F93"}, {"name": "Claude Olive", "hex": "#6D6F3F"}, {"name": "Claude Terracotta", "hex": "#B2603F"}, {"name": "Adiantum Ochre", "hex": "#C69A3E"}]}], "start": [1, 0], "spin": {"frames": ["assets/FR-001/f0.jpg", "assets/FR-001/f1.jpg", "assets/FR-001/f2.jpg", "assets/FR-001/f3.jpg", "assets/FR-001/f4.jpg", "assets/FR-001/f5.jpg", "assets/FR-001/f6.jpg", "assets/FR-001/f7.jpg"], "fabric": "Bouclé, Boucle 2 Off White"}};
+const P={"code": "FR-001", "name": "Poltrona giratória", "whatsapp": "258857566614", "webhook": "https://backend.automationbig8agency.com/webhook/indico-furniture-pedido", "booking": "", "groups": [{"id": "leather", "label": "Pele", "material": "Pele genuína de bovino.", "items": [{"name": "Ivory CG", "hex": "#E8E0CC"}, {"name": "Tan CG", "hex": "#A8693A"}, {"name": "Mocca Brown CG", "hex": "#5A3A29"}, {"name": "Dark Navy CG", "hex": "#1F2A44"}]}, {"id": "boucle", "label": "Bouclé", "material": "Bouclé, tecido texturado de poliéster, macio e resistente.", "items": [{"name": "Boucle 2 Off White", "hex": "#EFEBE1"}, {"name": "Boucle 2 Creamery", "hex": "#E9DFC8"}, {"name": "Boucle 2 Light Stone", "hex": "#CFC8BA"}, {"name": "Boucle 2 Charcoal", "hex": "#3B3D3F"}]}, {"id": "velvet", "label": "Veludo", "material": "Veludo de poliéster, macio e muito resistente ao uso.", "items": [{"name": "Plush Bone White", "hex": "#EDE7DA"}, {"name": "Plush Honey", "hex": "#C99A3C"}, {"name": "Plush Graphite", "hex": "#4A4D50"}, {"name": "Plush Peacock", "hex": "#1F6F78"}]}, {"id": "linen", "label": "Linho", "material": "Linho estampado.", "items": [{"name": "Claude Grey", "hex": "#8A8F93"}, {"name": "Claude Olive", "hex": "#6D6F3F"}, {"name": "Claude Terracotta", "hex": "#B2603F"}, {"name": "Adiantum Ochre", "hex": "#C69A3E"}]}], "start": [1, 0], "spin": {"frames": ["assets/FR-001/f0.jpg", "assets/FR-001/f1.jpg", "assets/FR-001/f2.jpg", "assets/FR-001/f3.jpg", "assets/FR-001/f4.jpg", "assets/FR-001/f5.jpg", "assets/FR-001/f6.jpg", "assets/FR-001/f7.jpg"], "fabric": "Bouclé, Boucle 2 Off White"}};
 /* ---------- tecido ---------- */
 let gi=P.start[0],fi=P.start[1];
 const tabs=document.getElementById('tabs'),sw=document.getElementById('sw');
@@ -154,14 +268,10 @@ document.getElementById('sl').onclick=()=>{auto=false;show(idx-1)};document.getE
 setInterval(()=>{if(auto)show(idx+1)},1400);
 function setColor(){const g=P.groups[gi],it=g.items[fi];document.getElementById('spnote').textContent=(g.label+', '+it.name)===P.spin.fabric?'Vista 360 no tecido escolhido.':'Nesta vista 360 o tecido mostrado é '+P.spin.fabric+'. O tecido que escolher é aplicado na peça final.'}
 drawG();
-/* ---------- reunião ---------- */
-const bk=document.getElementById('book');if(P.booking){bk.href=P.booking;bk.style.display='inline-block'}
-document.getElementById('rq').addEventListener('submit',async ev=>{ev.preventDefault();
-const f=id=>document.getElementById(id).value.trim();
-const g=P.groups[gi],it=g.items[fi];
-const msg=["Olá, quero marcar uma reunião sobre: "+P.name+" ("+P.code+")","Tecido: "+g.label+", "+it.name,f("d")?"Dia e hora: "+f("d"):"",f("m"),"Nome: "+f("n"),"Contacto: "+f("t")].filter(Boolean).join("\n");
-const st=document.getElementById('st');let done=false;
-if(P.webhook){try{await fetch(P.webhook,{method:'POST',headers:{'Content-Type':'application/json'},body:JSON.stringify({type:'reuniao',code:P.code,name:f('n'),contact:f('t'),when:f('d'),fabric:g.label+', '+it.name,message:f('m')})});done=true;st.textContent='Pedido enviado. Entramos em contacto consigo.'}catch(e){}}
-if(P.whatsapp){st.textContent=done?st.textContent:'A abrir o WhatsApp...';window.open('https://wa.me/'+P.whatsapp+'?text='+encodeURIComponent(msg),'_blank');done=true}
-if(!done){try{await navigator.clipboard.writeText(msg);st.textContent='O contacto ainda não está configurado neste site. A mensagem foi copiada.'}catch(e){st.textContent='O contacto ainda não está configurado neste site.'}}});
+/* ---------- carrinho ---------- */
+let q=1;const qv=document.getElementById('qv');
+document.getElementById('qm').onclick=()=>{q=Math.max(1,q-1);qv.textContent=q};
+document.getElementById('qp').onclick=()=>{q=Math.min(20,q+1);qv.textContent=q};
+document.getElementById('addc').onclick=()=>{const g=P.groups[gi],it=g.items[fi];
+  window.Cart&&Cart.add({code:P.code,name:P.name,fabric:g.label+', '+it.name,hex:it.hex,qty:q});q=1;qv.textContent=1};
 </script>

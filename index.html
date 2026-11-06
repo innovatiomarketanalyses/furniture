@@ -32,7 +32,7 @@ h1 em,h2 em{font-style:italic}
 .btn{display:inline-flex;align-items:center;gap:10px;background:var(--btn);color:var(--btn-ink);border:1px solid var(--btn);padding:15px 28px;font:500 13px var(--f-b);letter-spacing:.16em;text-transform:uppercase;text-decoration:none;cursor:pointer;border-radius:0;transition:opacity .2s}
 .btn:hover{opacity:.82}.btn.ghost{background:transparent;color:var(--ink);border-color:var(--ink)}
 .btn:focus-visible,.chip:focus-visible,.tab:focus-visible,input:focus-visible,textarea:focus-visible,.vb button:focus-visible{outline:2px solid var(--accent);outline-offset:3px}
-@media(max-width:560px){.bar nav a:not(:last-child){display:none}}
+@media(max-width:560px){.bar nav a{display:none}}
 /* hero */
 .hero{display:grid;grid-template-columns:minmax(0,1fr) minmax(0,1.05fr);gap:56px;align-items:center;padding-block:72px 88px}
 .hero img{width:100%;aspect-ratio:4/5;object-fit:cover;display:block}
@@ -94,12 +94,39 @@ dd{font-size:16px}
 .rq .btn{margin-top:26px;justify-content:center}
 .st{margin:10px 0 0;font-size:14px;color:var(--muted)}
 @media(prefers-reduced-motion:reduce){*{transition:none!important;scroll-behavior:auto!important}}
+
+/* carrinho */
+.cartbtn{font:500 13px var(--f-b);letter-spacing:.14em;text-transform:uppercase;background:none;border:1px solid var(--ink);color:var(--ink);padding:9px 16px;cursor:pointer;display:inline-flex;gap:8px;align-items:center}
+.cartbtn .cartn{display:inline-grid;place-items:center;min-width:20px;height:20px;border-radius:10px;background:var(--ink);color:var(--bg);font-size:11px;letter-spacing:0}
+.addrow{display:flex;gap:12px;align-items:stretch;margin-top:22px;flex-wrap:wrap}
+.qty{display:inline-flex;border:1px solid var(--ink)}.qty button{width:44px;background:none;border:0;font-size:20px;color:var(--ink);cursor:pointer}.qty output{min-width:44px;display:grid;place-items:center;font-size:16px}
+.addrow .btn{flex:1;justify-content:center;min-width:200px}
+.pnote{font-size:13px;color:var(--muted);margin:10px 0 0}
+#cbk{position:fixed;inset:0;background:rgba(0,0,0,.45);z-index:60}
+#cdr{position:fixed;top:0;right:0;bottom:0;width:min(460px,100%);background:var(--bg);color:var(--ink);z-index:61;overflow-y:auto;padding:24px max(20px,env(safe-area-inset-right,0px)) 40px 24px;box-shadow:-10px 0 40px rgba(0,0,0,.2)}
+#cdr[hidden],#cbk[hidden]{display:none}
+#cdr .ch{display:flex;justify-content:space-between;align-items:center;border-bottom:1px solid var(--line);padding-bottom:14px;margin-bottom:14px}
+#cdr h2{font-size:32px}#cx{font-size:30px;line-height:1;background:none;border:0;color:var(--ink);cursor:pointer;padding:0 6px}
+.cn{font-size:14px;color:var(--muted);margin:8px 0}
+.cit{display:grid;grid-template-columns:34px 1fr auto auto;gap:12px;align-items:center;padding:12px 0;border-bottom:1px solid var(--line)}
+.cit>i{width:30px;height:30px;border-radius:50%;border:1px solid var(--line);display:block}
+.cin b{display:block;font-weight:500}.cin span{font-size:13px;color:var(--muted)}
+.cq{display:inline-flex;align-items:center;border:1px solid var(--line)}.cq button{width:30px;height:30px;background:none;border:0;font-size:18px;color:var(--ink);cursor:pointer}.cq output{min-width:26px;text-align:center}
+.crm{background:none;border:0;font-size:22px;color:var(--muted);cursor:pointer}
+#cf{display:grid;gap:4px;margin-top:18px}
+#cf label{font-size:12px;letter-spacing:.14em;text-transform:uppercase;color:var(--muted);margin-top:12px}
+#cf input,#cf textarea{font:inherit;color:var(--ink);background:transparent;border:0;border-bottom:1px solid var(--line);padding:9px 0;width:100%;border-radius:0}
+#cf input[type=file]{border:1px dashed var(--line);padding:12px;font-size:14px}
+#cf input:focus,#cf textarea:focus{border-bottom-color:var(--ink);outline:none}
+.ci{border:1px solid var(--line);padding:14px;margin:16px 0 0}.ci legend{padding:0 8px;font-size:14px}
+#cf .btn{margin-top:20px;justify-content:center}
+#cf .btn[disabled]{opacity:.5}
 </style>
 <div class="wrap">
-<header class="bar"><a class="brand" href="index.html"><span class="lg1">Indico</span><span class="lg2">Furniture</span></a><nav><a href="#colecao">Coleção</a><a href="#como">Como funciona</a><a href="https://wa.me/258857566614">Falar connosco</a></nav></header>
+<header class="bar"><a class="brand" href="index.html"><span class="lg1">Indico</span><span class="lg2">Furniture</span></a><nav><a href="#colecao">Coleção</a><a href="#como">Como funciona</a><button type="button" class="cartbtn" data-cart-open>Pedido <span class="cartn">0</span></button></nav></header>
 <section class="hero"><div><p class="eyebrow">Mobiliário por medida</p><h1>Peças <em>feitas para si</em>, no tecido que escolher.</h1>
 <p class="lead">Estrutura cortada com precisão, espuma e forro acabados à mão. Escolha a peça, escolha o tecido e marque uma reunião para a tornar sua.</p>
-<div class="cta"><a class="btn" href="#colecao">Ver a coleção</a><a class="btn ghost" href="https://wa.me/258857566614">Falar connosco</a></div></div>
+<div class="cta"><a class="btn" href="#colecao">Ver a coleção</a><a class="btn ghost" href="#" data-cart-open>Falar connosco</a></div></div>
 <img src="assets/FR-001/1-hero-living-room-a.jpeg" alt="Poltrona giratória"></section>
 <section class="sec" id="colecao"><div class="head"><h2>A coleção</h2><p class="lead" style="margin:0">Cada peça é feita sob encomenda. A coleção cresce com o tempo.</p></div>
 <div class="grid"><a class="card" href="FR-001.html"><div class="ph"><img loading="lazy" src="assets/FR-001/1-hero-living-room-a.jpeg" alt="Poltrona giratória"></div><h3>Poltrona giratória</h3><p>Poltrona em barril com base giratória, forrada a bouclé</p><div class="meta">Ver peça e escolher tecido</div></a></div></section>
@@ -108,4 +135,97 @@ dd{font-size:16px}
 <li><span class="n">01</span><h3>Escolha a peça</h3><p>Veja-a de todos os lados, com as medidas.</p></li>
 <li><span class="n">02</span><h3>Escolha o tecido</h3><p>Pele, bouclé, veludo ou linho, em várias cores.</p></li>
 <li><span class="n">03</span><h3>Marque uma reunião</h3><p>Ajustamos medidas, tecido e cor consigo.</p></li></ol></section>
-<footer><div><b>Indico Furniture</b><br>Imagens ilustrativas, geradas por computador.</div><div><b>Contacto</b><br><a href="https://wa.me/258857566614">WhatsApp +258 85 756 6614</a></div></footer></div>
+<script>/* Carrinho e pedido. Guarda no navegador, envia o pedido ao n8n (email imediato) e, se falhar, abre o WhatsApp. */
+(function(){
+  var CFG={"brand": "Indico Furniture", "webhook": "https://backend.automationbig8agency.com/webhook/indico-furniture-pedido", "whatsapp": "258857566614"};
+  var KEY='indico_cart_v1',MAX=5*1024*1024;
+  var items=[];
+  try{items=JSON.parse(localStorage.getItem(KEY)||'[]')}catch(e){items=[]}
+  function save(){try{localStorage.setItem(KEY,JSON.stringify(items))}catch(e){}}
+  function count(){return items.reduce(function(a,i){return a+i.qty},0)}
+  function esc(s){return String(s).replace(/&/g,'&amp;').replace(/</g,'&lt;').replace(/"/g,'&quot;')}
+
+  var d=document.createElement('div');d.id='cartwrap';
+  d.innerHTML='<div id="cbk" hidden></div><aside id="cdr" role="dialog" aria-modal="true" aria-labelledby="ctt" hidden>'+
+   '<div class="ch"><h2 id="ctt">O seu pedido</h2><button type="button" id="cx" aria-label="Fechar">×</button></div>'+
+   '<div id="cl"></div>'+
+   '<form id="cf" autocomplete="on"><p class="cn">Receberemos o pedido de imediato e respondemos pessoalmente. Pode também só falar connosco ou marcar uma reunião.</p>'+
+   '<label for="cn1">O seu nome</label><input id="cn1" required>'+
+   '<label for="cp">WhatsApp ou telefone</label><input id="cp" inputmode="tel" required>'+
+   '<label for="ce">Email (opcional)</label><input id="ce" type="email">'+
+   '<label for="cd">Dia e hora preferidos para uma reunião (opcional)</label><input id="cd" placeholder="ex. quinta, de manhã">'+
+   '<label for="cm">Mensagem (opcional)</label><textarea id="cm" rows="2"></textarea>'+
+   '<fieldset class="ci"><legend>Tem uma inspiração ou a peça dos seus sonhos?</legend>'+
+   '<p class="cn" style="margin:0 0 8px">Envie uma imagem e descreva-a em poucas palavras. Ajuda-nos a responder melhor.</p>'+
+   '<input id="cfile" type="file" accept="image/*"><span id="cfn" class="cn"></span>'+
+   '<label for="cnote">Descrição da inspiração</label><textarea id="cnote" rows="2" placeholder="ex. poltrona redonda, em veludo verde, para a minha sala"></textarea></fieldset>'+
+   '<input id="cw" name="website" tabindex="-1" autocomplete="off" aria-hidden="true" style="position:absolute;left:-9999px;opacity:0">'+
+   '<button class="btn" type="submit" id="cs">Enviar pedido</button><p id="cst" class="st" role="status"></p></form></aside>';
+  document.addEventListener('DOMContentLoaded',init);
+  if(document.readyState!=='loading')init();
+  var ready=false;
+  function init(){
+    if(ready)return;ready=true;document.body.appendChild(d);
+    var $=function(i){return document.getElementById(i)};
+    $('cx').onclick=close;$('cbk').onclick=close;
+    document.addEventListener('keydown',function(e){if(e.key==='Escape')close()});
+    document.querySelectorAll('[data-cart-open]').forEach(function(b){b.addEventListener('click',function(e){e.preventDefault();open()})});
+    $('cfile').onchange=function(){var f=this.files[0];if(!f){$('cfn').textContent='';return}
+      if(f.size>MAX){this.value='';$('cfn').textContent='A imagem tem mais de 5 MB. Escolha uma mais pequena.';return}
+      $('cfn').textContent=f.name};
+    $('cf').onsubmit=send;draw();
+  }
+  function $(i){return document.getElementById(i)}
+  function open(){$('cbk').hidden=false;$('cdr').hidden=false;document.body.style.overflow='hidden';setTimeout(function(){var f=$('cn1');if(f)f.focus()},50)}
+  function close(){$('cbk').hidden=true;$('cdr').hidden=true;document.body.style.overflow=''}
+  function draw(){
+    document.querySelectorAll('.cartn').forEach(function(n){n.textContent=count()});
+    var l=$('cl');if(!l)return;
+    if(!items.length){l.innerHTML='<p class="cn">O carrinho está vazio. Escolha uma peça, o tecido e a quantidade.</p>';return}
+    l.innerHTML=items.map(function(it,i){return '<div class="cit"><i style="background:'+esc(it.hex||'#ddd')+'"></i><div class="cin"><b>'+esc(it.name)+'</b><span>'+esc(it.fabric)+'</span></div>'+
+      '<div class="cq"><button type="button" data-q="-1" data-i="'+i+'" aria-label="Menos">−</button><output>'+it.qty+'</output><button type="button" data-q="1" data-i="'+i+'" aria-label="Mais">+</button></div>'+
+      '<button type="button" class="crm" data-r="'+i+'" aria-label="Remover">×</button></div>'}).join('');
+    l.querySelectorAll('[data-q]').forEach(function(b){b.onclick=function(){var it=items[+b.dataset.i];it.qty=Math.max(1,Math.min(20,it.qty+ +b.dataset.q));save();draw()}});
+    l.querySelectorAll('[data-r]').forEach(function(b){b.onclick=function(){items.splice(+b.dataset.r,1);save();draw()}});
+  }
+  window.Cart={
+    add:function(it){var f=items.find(function(x){return x.code===it.code&&x.fabric===it.fabric});
+      if(f)f.qty=Math.min(20,f.qty+it.qty);else items.push(it);save();draw();open()},
+    open:open
+  };
+  function msgText(v){
+    return ['Olá, quero fazer um pedido ao '+CFG.brand+':'].concat(items.map(function(i){return '- '+i.qty+' × '+i.name+' ('+i.code+'), '+i.fabric})).concat([v.message?'Mensagem: '+v.message:'',v.meeting?'Reunião: '+v.meeting:'',v.note?'Inspiração: '+v.note:'','Nome: '+v.name,'Contacto: '+v.phone]).filter(Boolean).join('\n');
+  }
+  async function send(ev){
+    ev.preventDefault();
+    var st=$('cst'),btn=$('cs');
+    var v={name:$('cn1').value.trim(),phone:$('cp').value.trim(),email:$('ce').value.trim(),meeting:$('cd').value.trim(),message:$('cm').value.trim(),note:$('cnote').value.trim()};
+    var file=$('cfile').files[0];
+    if(!items.length&&!v.message&&!v.note&&!file&&!v.meeting){st.textContent='Adicione uma peça ou escreva-nos uma mensagem.';return}
+    btn.disabled=true;st.textContent='A enviar...';
+    var ok=false;
+    if(CFG.webhook){
+      try{
+        var fd=new FormData();
+        fd.append('name',v.name);fd.append('phone',v.phone);fd.append('email',v.email);
+        fd.append('message',[v.message,v.meeting?'Reunião: '+v.meeting:''].filter(Boolean).join('\n'));
+        fd.append('inspiration_note',v.note);fd.append('website',$('cw').value);
+        fd.append('items',JSON.stringify(items.map(function(i){return {code:i.code,name:i.name,fabric:i.fabric,qty:i.qty}})));
+        fd.append('source',location.hostname||'furniture.indicostay.com');
+        if(location.hash==='#teste')fd.append('test','1');
+        if(file)fd.append('inspiration',file,file.name);
+        var r=await fetch(CFG.webhook,{method:'POST',body:fd});
+        ok=r.ok;
+      }catch(e){ok=false}
+    }
+    if(ok){
+      items=[];save();draw();$('cf').reset();$('cfn').textContent='';
+      st.textContent='Pedido enviado. Recebemo-lo agora e respondemos em breve.';
+    }else if(CFG.whatsapp){
+      window.open('https://wa.me/'+CFG.whatsapp+'?text='+encodeURIComponent(msgText(v)),'_blank');
+      st.textContent=file?'Abrimos o WhatsApp com o seu pedido. Envie lá também a imagem de inspiração.':'Abrimos o WhatsApp com o seu pedido. Carregue em enviar.';
+    }else{st.textContent='Não foi possível enviar. Tente mais tarde.'}
+    btn.disabled=false;
+  }
+})();
+</script><footer><div><b>Indico Furniture</b><br>Imagens ilustrativas, geradas por computador.</div><div><b>Contacto</b><br><a href="https://wa.me/258857566614">WhatsApp +258 85 756 6614</a></div></footer></div>
