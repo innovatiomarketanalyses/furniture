@@ -1,0 +1,165 @@
+<!doctype html><html lang="pt"><meta charset="utf-8"><meta name="viewport" content="width=device-width,initial-scale=1,viewport-fit=cover">
+<title>Poltrona giratória</title>
+<link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Instrument+Serif:ital@0;1&family=Hanken+Grotesk:wght@400;500;600&display=swap">
+<style>/* Montra pública. Layout: cabeçalho fino, hero com a peça em grande, coleção em cartões amplos, 3 passos, rodapé. */
+:root{
+  --bg:#f2f2ef; --panel:#fafaf8; --ink:#181916; --muted:#6a6c66; --line:#d8d9d3; --accent:#8a6d3b; --btn:#181916; --btn-ink:#f4f3ee; --stage:#e4e5e1;
+  --f-d:'Instrument Serif','Times New Roman',Georgia,serif;
+  --f-b:'Hanken Grotesk','Helvetica Neue',Arial,sans-serif;
+}
+@media (prefers-color-scheme: dark){:root:not([data-theme="light"]){
+  --bg:#121311; --panel:#1a1b18; --ink:#eceae3; --muted:#9a9c94; --line:#2c2d29; --accent:#c4a56a; --btn:#eceae3; --btn-ink:#121311; --stage:#1f201d; color-scheme:dark}}
+:root[data-theme="dark"]{
+  --bg:#121311; --panel:#1a1b18; --ink:#eceae3; --muted:#9a9c94; --line:#2c2d29; --accent:#c4a56a; --btn:#eceae3; --btn-ink:#121311; --stage:#1f201d; color-scheme:dark}
+*{box-sizing:border-box}
+html{scroll-behavior:smooth}
+body{margin:0;background:var(--bg);color:var(--ink);font:16px/1.6 var(--f-b);-webkit-font-smoothing:antialiased;
+  padding-left:max(20px,env(safe-area-inset-left,0px));padding-right:max(20px,env(safe-area-inset-right,0px))}
+a{color:inherit}
+.wrap{max-width:1240px;margin:0 auto}
+.bar{display:flex;align-items:center;justify-content:space-between;gap:16px;padding-block:26px;border-bottom:1px solid var(--line)}
+.brand{font:400 26px/1 var(--f-d);letter-spacing:.02em;text-decoration:none}
+.bar nav{display:flex;gap:26px;font-size:13px;letter-spacing:.14em;text-transform:uppercase}
+.bar nav a{text-decoration:none;color:var(--muted)}.bar nav a:hover{color:var(--ink)}
+.eyebrow{font-size:12px;letter-spacing:.2em;text-transform:uppercase;color:var(--accent);margin:0 0 18px}
+h1,h2{font-family:var(--f-d);font-weight:400;margin:0;letter-spacing:-.01em;text-wrap:balance}
+h1{font-size:clamp(44px,7vw,96px);line-height:.98}
+h2{font-size:clamp(30px,4vw,48px);line-height:1.05}
+h1 em,h2 em{font-style:italic}
+.lead{font-size:18px;color:var(--muted);max-width:46ch;margin:22px 0 0}
+.btn{display:inline-flex;align-items:center;gap:10px;background:var(--btn);color:var(--btn-ink);border:1px solid var(--btn);padding:15px 28px;font:500 13px var(--f-b);letter-spacing:.16em;text-transform:uppercase;text-decoration:none;cursor:pointer;border-radius:0;transition:opacity .2s}
+.btn:hover{opacity:.82}.btn.ghost{background:transparent;color:var(--ink);border-color:var(--ink)}
+.btn:focus-visible,.chip:focus-visible,.tab:focus-visible,input:focus-visible,textarea:focus-visible,.vb button:focus-visible{outline:2px solid var(--accent);outline-offset:3px}
+@media(max-width:560px){.bar nav a:not(:last-child){display:none}}
+/* hero */
+.hero{display:grid;grid-template-columns:minmax(0,1fr) minmax(0,1.05fr);gap:56px;align-items:center;padding-block:72px 88px}
+.hero img{width:100%;aspect-ratio:4/5;object-fit:cover;display:block}
+.hero .cta{display:flex;flex-wrap:wrap;gap:14px;margin-top:38px}
+@media(max-width:860px){.hero{grid-template-columns:1fr;padding-block:40px 56px;gap:32px}.hero img{aspect-ratio:4/3}}
+/* coleção */
+.sec{padding-block:80px;border-top:1px solid var(--line)}
+.sec>.head{display:flex;justify-content:space-between;align-items:end;gap:20px;margin-bottom:40px;flex-wrap:wrap}
+.grid{display:grid;grid-template-columns:repeat(auto-fill,minmax(340px,1fr));gap:40px 28px}
+.card{text-decoration:none;display:block}
+.card .ph{overflow:hidden;background:var(--stage)}
+.card img{width:100%;aspect-ratio:4/5;object-fit:cover;display:block;transition:transform .6s ease}
+.card:hover img{transform:scale(1.03)}
+.card h3{font:400 30px/1.1 var(--f-d);margin:16px 0 4px}
+.card p{margin:0;color:var(--muted);font-size:15px}
+.card .meta{margin-top:10px;font-size:12px;letter-spacing:.14em;text-transform:uppercase;color:var(--accent)}
+/* passos */
+.steps{display:grid;grid-template-columns:repeat(auto-fit,minmax(240px,1fr));gap:36px}
+.steps li{list-style:none;border-top:1px solid var(--ink);padding-top:18px}
+.steps ol{margin:0;padding:0;display:contents}
+.steps .n{font:400 14px var(--f-b);letter-spacing:.2em;color:var(--accent)}
+.steps h3{font:400 28px/1.1 var(--f-d);margin:12px 0 8px}.steps p{margin:0;color:var(--muted)}
+/* rodapé */
+footer{padding-block:48px 56px;border-top:1px solid var(--line);display:flex;flex-wrap:wrap;gap:20px 48px;justify-content:space-between;color:var(--muted);font-size:14px}
+footer b{color:var(--ink);font-weight:500}
+/* peça */
+.piece{display:grid;grid-template-columns:minmax(0,1.25fr) minmax(0,1fr);gap:64px;padding-block:48px 80px;align-items:start}
+@media(max-width:900px){.piece{grid-template-columns:1fr;gap:36px;padding-block:28px 56px}}
+.v3{position:relative;aspect-ratio:4/3;overflow:hidden;background:var(--stage);touch-action:pan-y;cursor:grab;user-select:none}
+.v3:active{cursor:grabbing}
+.v3 img{width:100%;height:100%;object-fit:cover;display:block;pointer-events:none}
+.vh{position:absolute;left:16px;bottom:14px;font-size:11px;letter-spacing:.18em;text-transform:uppercase;color:#4d4f49;background:rgba(255,255,255,.7);padding:5px 10px}
+.vb{position:absolute;right:14px;bottom:12px;display:flex;gap:8px}
+.vb button{width:42px;height:42px;border-radius:50%;border:1px solid rgba(0,0,0,.15);background:rgba(255,255,255,.88);color:#181916;font-size:20px;line-height:1;cursor:pointer}
+.note{font-size:13px;color:var(--muted);margin:10px 0 0}
+.gal{display:grid;grid-template-columns:repeat(auto-fit,minmax(220px,1fr));gap:14px;margin-top:14px}
+.gal figure{margin:0}.gal img{width:100%;aspect-ratio:4/3;object-fit:cover;display:block}
+.gal figcaption{font-size:12px;letter-spacing:.14em;text-transform:uppercase;color:var(--muted);margin-top:8px}
+.side{position:sticky;top:24px}
+@media(max-width:900px){.side{position:static}}
+dl{display:grid;grid-template-columns:auto 1fr;margin:30px 0 0}
+dt,dd{margin:0;padding:12px 0;border-top:1px solid var(--line)}
+dt{color:var(--muted);padding-right:24px;font-size:13px;letter-spacing:.12em;text-transform:uppercase}
+dd{font-size:16px}
+.fab{margin-top:34px}.fab h2{font-size:28px;margin-bottom:12px}
+.tabs{display:flex;flex-wrap:wrap;gap:22px;border-bottom:1px solid var(--line)}
+.tab{font:500 13px var(--f-b);letter-spacing:.16em;text-transform:uppercase;color:var(--muted);background:none;border:0;border-bottom:2px solid transparent;padding:10px 0;cursor:pointer;margin-bottom:-1px}
+.tab[aria-pressed="true"]{color:var(--ink);border-bottom-color:var(--ink)}
+.mat{font-size:14px;color:var(--muted);margin:12px 0}
+.sw{display:flex;flex-wrap:wrap;gap:12px}
+.chip{display:flex;flex-direction:column;align-items:center;gap:6px;width:84px;font:inherit;font-size:12px;line-height:1.25;text-align:center;color:var(--ink);background:none;border:0;padding:4px;cursor:pointer}
+.chip i{width:46px;height:46px;border-radius:50%;border:1px solid var(--line);display:block;transition:box-shadow .2s}
+.chip[aria-pressed="true"] i{box-shadow:0 0 0 2px var(--bg),0 0 0 3.5px var(--ink)}
+.rq{display:grid;gap:4px;margin-top:40px;padding-top:30px;border-top:1px solid var(--ink)}
+.rq h2{font-size:34px}
+.rq label{font-size:12px;letter-spacing:.14em;text-transform:uppercase;color:var(--muted);margin-top:14px}
+.rq input,.rq textarea{font:inherit;color:var(--ink);background:transparent;border:0;border-bottom:1px solid var(--line);padding:10px 0;width:100%;border-radius:0}
+.rq input:focus,.rq textarea:focus{border-bottom-color:var(--ink);outline:none}
+.rq .btn{margin-top:26px;justify-content:center}
+.st{margin:10px 0 0;font-size:14px;color:var(--muted)}
+@media(prefers-reduced-motion:reduce){*{transition:none!important;scroll-behavior:auto!important}}
+</style>
+<div class="wrap">
+<header class="bar"><a class="brand" href="index.html">Mobílias</a><nav><a href="index.html#colecao">Coleção</a><a href="#reuniao">Marcar reunião</a></nav></header>
+<main class="piece">
+<div>
+  <div class="v3" id="v3" role="img" aria-label="Vista 360 da peça, arraste para rodar"><img id="spin" alt="" draggable="false"><span class="vh" id="vh">arraste para rodar</span><div class="vb"><button type="button" id="sl" aria-label="Rodar para a esquerda">‹</button><button type="button" id="sr" aria-label="Rodar para a direita">›</button></div></div>
+  <p class="note" id="spnote"></p>
+  <div class="gal"><figure><a href="assets/FR-001/2-side-profile-a.jpeg"><img loading="lazy" src="assets/FR-001/2-side-profile-a.jpeg" alt="Perfil lateral"></a><figcaption>Perfil lateral</figcaption></figure><figure><a href="assets/FR-001/3-bare-frame-a.jpeg"><img loading="lazy" src="assets/FR-001/3-bare-frame-a.jpeg" alt="Estrutura interior (ilustração)"></a><figcaption>Estrutura interior (ilustração)</figcaption></figure></div>
+</div>
+<div class="side">
+<p class="eyebrow">FR-001 · feita por medida</p>
+<h1 style="font-size:clamp(44px,5vw,72px)">Poltrona giratória</h1><p class="lead">Poltrona giratória em forma de barril, com costas e braços numa só parede envolvente e um assento fundo. Forrada a tecido bouclé.</p>
+<dl><dt>Medidas</dt><dd>cerca de 900 × 880 × 740 mm</dd><dt>Tecido</dt><dd>bouclé, branco-sujo (outras cores sob encomenda)</dd><dt>Base</dt><dd>giratória</dd><dt>Estrutura</dt><dd>contraplacado cortado a CNC</dd><dt>Estado</dt><dd>protótipo</dd><dt>Imagens</dt><dd>ilustrativas, geradas por computador</dd></dl>
+<section class="fab"><h2>O tecido</h2>
+<div class="tabs" id="tabs" role="group" aria-label="Material"></div>
+<p class="mat" id="mat"></p>
+<div class="sw" id="sw"></div>
+<p class="mat">Escolhido: <b id="chosen" style="color:var(--ink);font-weight:500"></b>. As cores no ecrã são aproximadas.</p></section>
+<form id="rq" class="rq" autocomplete="on"><h2 id="reuniao">Marque uma reunião</h2>
+<p class="mat" style="margin:6px 0 0">Para uma peça mais personalizada: medidas, tecido, cor ou outro modelo.</p>
+<label for="n">O seu nome</label><input id="n" required>
+<label for="t">WhatsApp ou telefone</label><input id="t" inputmode="tel" required>
+<label for="d">Dia e hora preferidos</label><input id="d" placeholder="ex. quinta, de manhã">
+<label for="m">O que quer personalizar? (opcional)</label><textarea id="m" rows="3"></textarea>
+<button class="btn" type="submit">Marcar reunião</button>
+<a id="book" class="btn ghost" style="display:none;margin-top:12px;justify-content:center" target="_blank" rel="noopener">Escolher horário no calendário</a>
+<p id="st" class="st" role="status"></p></form>
+</div>
+</main>
+<footer><div><b>Mobílias</b><br>Imagens ilustrativas, geradas por computador.</div><div><b>Contacto</b><br><a href="https://wa.me/258857566614">WhatsApp +258 85 756 6614</a></div></footer>
+</div>
+<script>
+const P={"code": "FR-001", "name": "Poltrona giratória", "whatsapp": "258857566614", "webhook": "", "booking": "", "groups": [{"id": "leather", "label": "Pele", "material": "Pele genuína de bovino.", "items": [{"name": "Ivory CG", "hex": "#E8E0CC"}, {"name": "Tan CG", "hex": "#A8693A"}, {"name": "Mocca Brown CG", "hex": "#5A3A29"}, {"name": "Dark Navy CG", "hex": "#1F2A44"}]}, {"id": "boucle", "label": "Bouclé", "material": "Bouclé, tecido texturado de poliéster, macio e resistente.", "items": [{"name": "Boucle 2 Off White", "hex": "#EFEBE1"}, {"name": "Boucle 2 Creamery", "hex": "#E9DFC8"}, {"name": "Boucle 2 Light Stone", "hex": "#CFC8BA"}, {"name": "Boucle 2 Charcoal", "hex": "#3B3D3F"}]}, {"id": "velvet", "label": "Veludo", "material": "Veludo de poliéster, macio e muito resistente ao uso.", "items": [{"name": "Plush Bone White", "hex": "#EDE7DA"}, {"name": "Plush Honey", "hex": "#C99A3C"}, {"name": "Plush Graphite", "hex": "#4A4D50"}, {"name": "Plush Peacock", "hex": "#1F6F78"}]}, {"id": "linen", "label": "Linho", "material": "Linho estampado.", "items": [{"name": "Claude Grey", "hex": "#8A8F93"}, {"name": "Claude Olive", "hex": "#6D6F3F"}, {"name": "Claude Terracotta", "hex": "#B2603F"}, {"name": "Adiantum Ochre", "hex": "#C69A3E"}]}], "start": [1, 0], "spin": {"frames": ["assets/FR-001/f0.jpg", "assets/FR-001/f1.jpg", "assets/FR-001/f2.jpg", "assets/FR-001/f3.jpg", "assets/FR-001/f4.jpg", "assets/FR-001/f5.jpg", "assets/FR-001/f6.jpg", "assets/FR-001/f7.jpg"], "fabric": "Bouclé, Boucle 2 Off White"}};
+/* ---------- tecido ---------- */
+let gi=P.start[0],fi=P.start[1];
+const tabs=document.getElementById('tabs'),sw=document.getElementById('sw');
+P.groups.forEach((g,i)=>{const b=document.createElement('button');b.type='button';b.className='tab';b.textContent=g.label;b.onclick=()=>{gi=i;fi=0;drawG()};tabs.appendChild(b)});
+function drawG(){
+  const g=P.groups[gi];
+  [...tabs.children].forEach((b,i)=>b.setAttribute('aria-pressed',i===gi));
+  document.getElementById('mat').textContent=g.material;
+  sw.innerHTML='';
+  g.items.forEach((it,i)=>{const b=document.createElement('button');b.type='button';b.className='chip';b.title=it.name;b.setAttribute('aria-pressed',i===fi);
+    b.innerHTML='<i style="background:'+it.hex+'"></i><span>'+it.name+'</span>';b.onclick=()=>{fi=i;drawG()};sw.appendChild(b)});
+  const it=g.items[fi];document.getElementById('chosen').textContent=g.label+', '+it.name;
+  setColor();
+}
+/* ---------- vista 360 por fotografias ---------- */
+const F=P.spin.frames,box=document.getElementById('v3'),im=document.getElementById('spin');
+F.forEach(u=>{const i=new Image();i.src=u});
+let idx=0,acc=0,drag=null,auto=!matchMedia('(prefers-reduced-motion: reduce)').matches;
+function show(i){idx=((i%F.length)+F.length)%F.length;im.src=F[idx]}
+show(0);
+box.addEventListener('pointerdown',e=>{drag=e.clientX;auto=false;box.setPointerCapture(e.pointerId)});
+box.addEventListener('pointermove',e=>{if(drag===null)return;const step=box.clientWidth/F.length;acc+=(drag-e.clientX);drag=e.clientX;const k=Math.trunc(acc/step);if(k){show(idx+k);acc-=k*step}});
+box.addEventListener('pointerup',()=>drag=null);box.addEventListener('pointercancel',()=>drag=null);
+document.getElementById('sl').onclick=()=>{auto=false;show(idx-1)};document.getElementById('sr').onclick=()=>{auto=false;show(idx+1)};
+setInterval(()=>{if(auto)show(idx+1)},1400);
+function setColor(){const g=P.groups[gi],it=g.items[fi];document.getElementById('spnote').textContent=(g.label+', '+it.name)===P.spin.fabric?'Vista 360 no tecido escolhido.':'Nesta vista 360 o tecido mostrado é '+P.spin.fabric+'. O tecido que escolher é aplicado na peça final.'}
+drawG();
+/* ---------- reunião ---------- */
+const bk=document.getElementById('book');if(P.booking){bk.href=P.booking;bk.style.display='inline-block'}
+document.getElementById('rq').addEventListener('submit',async ev=>{ev.preventDefault();
+const f=id=>document.getElementById(id).value.trim();
+const g=P.groups[gi],it=g.items[fi];
+const msg=["Olá, quero marcar uma reunião sobre: "+P.name+" ("+P.code+")","Tecido: "+g.label+", "+it.name,f("d")?"Dia e hora: "+f("d"):"",f("m"),"Nome: "+f("n"),"Contacto: "+f("t")].filter(Boolean).join("\n");
+const st=document.getElementById('st');let done=false;
+if(P.webhook){try{await fetch(P.webhook,{method:'POST',headers:{'Content-Type':'application/json'},body:JSON.stringify({type:'reuniao',code:P.code,name:f('n'),contact:f('t'),when:f('d'),fabric:g.label+', '+it.name,message:f('m')})});done=true;st.textContent='Pedido enviado. Entramos em contacto consigo.'}catch(e){}}
+if(P.whatsapp){st.textContent=done?st.textContent:'A abrir o WhatsApp...';window.open('https://wa.me/'+P.whatsapp+'?text='+encodeURIComponent(msg),'_blank');done=true}
+if(!done){try{await navigator.clipboard.writeText(msg);st.textContent='O contacto ainda não está configurado neste site. A mensagem foi copiada.'}catch(e){st.textContent='O contacto ainda não está configurado neste site.'}}});
+</script>
