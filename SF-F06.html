@@ -200,8 +200,9 @@ h1{font-size:clamp(40px,6vw,84px);line-height:1.02}
 <p class="mat" id="mat"></p>
 <div class="sw" id="sw"></div>
 <p class="mat">Escolhido: <b id="chosen" style="color:var(--ink);font-weight:500"></b>. As cores no ecrã são aproximadas.</p></section>
+<p class="price" id="price" style="font-size:28px;margin:18px 0 4px;font-family:'Instrument Serif',serif"></p><p class="pnote" style="margin-top:0">Preço por peça, IVA incluído, no tecido escolhido. Confirmado quando recebermos o seu pedido.</p>
 <div class="addrow"><div class="qty" role="group" aria-label="Quantidade"><button type="button" id="qm" aria-label="Menos">−</button><output id="qv">1</output><button type="button" id="qp" aria-label="Mais">+</button></div><button type="button" class="btn" id="addc">Adicionar ao pedido</button></div>
-<p class="pnote"><b style="color:var(--ink);font-weight:500">Construímos a peça inteira em 10 dias.</b> Sem pagamento agora: envia o pedido e respondemos pessoalmente. Também pode <a href="#" data-cart-open>falar connosco ou marcar uma reunião</a>.</p>
+<p class="pnote"><b style="color:var(--ink);font-weight:500">Construímos a peça inteira em 10 dias.</b> Pagamento: 75% no momento da compra e 25% na entrega. Envie o pedido e respondemos pessoalmente. Também pode <a href="#" data-cart-open>falar connosco ou marcar uma reunião</a>.</p>
 </div>
 </main>
 <script>/* Carrinho e pedido. Guarda no navegador, envia o pedido ao n8n (email imediato) e, se falhar, abre o WhatsApp. */
@@ -212,6 +213,8 @@ h1{font-size:clamp(40px,6vw,84px);line-height:1.02}
   try{items=JSON.parse(localStorage.getItem(KEY)||'[]')}catch(e){items=[]}
   function save(){try{localStorage.setItem(KEY,JSON.stringify(items))}catch(e){}}
   function count(){return items.reduce(function(a,i){return a+i.qty},0)}
+  function mzn(n){return Math.round(n).toLocaleString('pt-PT')+' MZN'}
+  function total(){return items.reduce(function(a,i){return a+(i.price||0)*i.qty},0)}
   function esc(s){return String(s).replace(/&/g,'&amp;').replace(/</g,'&lt;').replace(/"/g,'&quot;')}
 
   var d=document.createElement('div');d.id='cartwrap';
@@ -221,7 +224,7 @@ h1{font-size:clamp(40px,6vw,84px);line-height:1.02}
    '<form id="cf" autocomplete="on"><p class="cn">Receberemos o pedido de imediato e respondemos pessoalmente. Pode também só falar connosco ou marcar uma reunião.</p>'+
    '<label for="cn1">O seu nome</label><input id="cn1" required>'+
    '<label for="cp">WhatsApp ou telefone</label><input id="cp" inputmode="tel" required>'+
-   '<label for="ce">Email (opcional)</label><input id="ce" type="email">'+
+   '<label for="ce">Email (enviamos-lhe a cotação com IVA incluído)</label><input id="ce" type="email" required>'+
    '<label for="cd">Dia e hora preferidos para uma reunião (opcional)</label><input id="cd" placeholder="ex. quinta, de manhã">'+
    '<label for="cm">Mensagem (opcional)</label><textarea id="cm" rows="2"></textarea>'+
    '<fieldset class="ci"><legend>Tem uma inspiração ou a peça dos seus sonhos?</legend>'+
@@ -229,6 +232,7 @@ h1{font-size:clamp(40px,6vw,84px);line-height:1.02}
    '<input id="cfile" type="file" accept="image/*"><span id="cfn" class="cn"></span>'+
    '<label for="cnote">Descrição da inspiração</label><textarea id="cnote" rows="2" placeholder="ex. poltrona redonda, em veludo verde, para a minha sala"></textarea></fieldset>'+
    '<input id="cw" name="website" tabindex="-1" autocomplete="off" aria-hidden="true" style="position:absolute;left:-9999px;opacity:0">'+
+   '<p class="cn">Ao enviar, aceita os <a href="termos" target="_blank">Termos de uso</a> e a <a href="privacidade" target="_blank">Política de privacidade</a>.</p>'+
    '<button class="btn" type="submit" id="cs">Enviar pedido</button><p id="cst" class="st" role="status"></p></form></aside>';
   document.addEventListener('DOMContentLoaded',init);
   if(document.readyState!=='loading')init();
@@ -251,9 +255,10 @@ h1{font-size:clamp(40px,6vw,84px);line-height:1.02}
     document.querySelectorAll('.cartn').forEach(function(n){n.textContent=count()});
     var l=$('cl');if(!l)return;
     if(!items.length){l.innerHTML='<p class="cn">O carrinho está vazio. Escolha uma peça, o tecido e a quantidade.</p>';return}
-    l.innerHTML=items.map(function(it,i){return '<div class="cit"><i style="background:'+esc(it.hex||'#ddd')+'"></i><div class="cin"><b>'+esc(it.name)+'</b><span>'+esc(it.fabric)+'</span></div>'+
+    l.innerHTML=items.map(function(it,i){return '<div class="cit"><i style="background:'+esc(it.hex||'#ddd')+'"></i><div class="cin"><b>'+esc(it.name)+'</b><span>'+esc(it.fabric)+'</span>'+(it.price?'<span><b>'+mzn(it.price*it.qty)+'</b>'+(it.qty>1?' ('+mzn(it.price)+' cada)':'')+'</span>':'')+'</div>'+
       '<div class="cq"><button type="button" data-q="-1" data-i="'+i+'" aria-label="Menos">−</button><output>'+it.qty+'</output><button type="button" data-q="1" data-i="'+i+'" aria-label="Mais">+</button></div>'+
       '<button type="button" class="crm" data-r="'+i+'" aria-label="Remover">×</button></div>'}).join('');
+    var T=total();if(T)l.innerHTML+='<div class="cn" style="display:flex;justify-content:space-between;font-size:18px;margin-top:12px;padding-top:10px;border-top:1px solid #ddd"><span>Total (IVA incluído)</span><b>'+mzn(T)+'</b></div><p class="cn">Preço final, IVA incluído, no tecido escolhido. Pagamento: 75% no momento da compra e 25% na entrega.</p>';
     l.querySelectorAll('[data-q]').forEach(function(b){b.onclick=function(){var it=items[+b.dataset.i];it.qty=Math.max(1,Math.min(20,it.qty+ +b.dataset.q));save();draw()}});
     l.querySelectorAll('[data-r]').forEach(function(b){b.onclick=function(){items.splice(+b.dataset.r,1);save();draw()}});
   }
@@ -279,7 +284,7 @@ h1{font-size:clamp(40px,6vw,84px);line-height:1.02}
         fd.append('name',v.name);fd.append('phone',v.phone);fd.append('email',v.email);
         fd.append('message',[v.message,v.meeting?'Reunião: '+v.meeting:''].filter(Boolean).join('\n'));
         fd.append('inspiration_note',v.note);fd.append('website',$('cw').value);
-        fd.append('items',JSON.stringify(items.map(function(i){return {code:i.code,name:i.name,fabric:i.fabric,qty:i.qty}})));
+        fd.append('items',JSON.stringify(items.map(function(i){return {code:i.code,name:i.name,fabric:i.fabric,qty:i.qty,unit_price_mzn:i.price||null,line_total_mzn:(i.price||0)*i.qty}})));fd.append('total_mzn',String(total()));
         fd.append('source',location.hostname||'furniture.indicostay.com');
         if(location.hash==='#teste')fd.append('test','1');
         if(file)fd.append('inspiration',file,file.name);
@@ -298,10 +303,10 @@ h1{font-size:clamp(40px,6vw,84px);line-height:1.02}
   }
 })();
 </script>
-<footer><div><b>Contacto</b><br><a href="https://wa.me/258857566614">WhatsApp +258 85 756 6614</a></div></footer>
+<footer><div><b>Contacto</b><br><a href="https://wa.me/258857566614">WhatsApp +258 85 756 6614</a></div><div><a href="termos">Termos de uso</a> · <a href="privacidade">Política de privacidade</a></div></footer>
 </div>
 <script>
-const P={"code": "SF-F06", "name": "Sofá Oliva", "whatsapp": "258857566614", "webhook": "https://backend.automationbig8agency.com/webhook/indico-furniture-pedido", "booking": "", "groups": [{"id": "leather", "label": "Pele", "material": "Pele genuína de bovino.", "items": [{"name": "Ivory CG", "hex": "#E8E0CC"}, {"name": "Tan CG", "hex": "#A8693A"}, {"name": "Mocca Brown CG", "hex": "#5A3A29"}, {"name": "Dark Navy CG", "hex": "#1F2A44"}]}], "start": [0, 2], "spin": {"frames": ["assets/SF-F06/F06-2-frente.jpg", "assets/SF-F06/F06-4-tres-quartos.jpg", "assets/SF-F06/F06-3-lateral.jpg", "assets/SF-F06/F06-5-costas.jpg"], "fabric": "o das fotografias"}};
+const P={"code": "SF-F06", "name": "Sofá Oliva", "whatsapp": "258857566614", "webhook": "https://backend.automationbig8agency.com/webhook/indico-furniture-pedido", "booking": "", "groups": [{"id": "leather", "label": "Pele", "material": "Pele genuína de bovino.", "items": [{"name": "Ivory CG", "hex": "#E8E0CC"}, {"name": "Tan CG", "hex": "#A8693A"}, {"name": "Mocca Brown CG", "hex": "#5A3A29"}, {"name": "Dark Navy CG", "hex": "#1F2A44"}], "price": 78890.0}], "start": [0, 2], "spin": {"frames": ["assets/SF-F06/F06-2-frente.jpg", "assets/SF-F06/F06-4-tres-quartos.jpg", "assets/SF-F06/F06-3-lateral.jpg", "assets/SF-F06/F06-5-costas.jpg"], "fabric": "o das fotografias"}};
 /* ---------- tecido ---------- */
 let gi=P.start[0],fi=P.start[1];
 const tabs=document.getElementById('tabs'),sw=document.getElementById('sw');
@@ -309,7 +314,7 @@ P.groups.forEach((g,i)=>{const b=document.createElement('button');b.type='button
 function drawG(){
   const g=P.groups[gi];
   [...tabs.children].forEach((b,i)=>b.setAttribute('aria-pressed',i===gi));
-  document.getElementById('mat').textContent=g.material;
+  document.getElementById('mat').textContent=g.material;document.getElementById('price').textContent=g.price?g.price.toLocaleString('pt-PT')+' MZN · IVA incluído':'Preço sob consulta';
   sw.innerHTML='';
   g.items.forEach((it,i)=>{const b=document.createElement('button');b.type='button';b.className='chip';b.title=it.name;b.setAttribute('aria-pressed',i===fi);
     b.innerHTML='<i style="background:'+it.hex+'"></i><span>'+it.name+'</span>';b.onclick=()=>{fi=i;drawG()};sw.appendChild(b)});
@@ -334,5 +339,5 @@ let q=1;const qv=document.getElementById('qv');
 document.getElementById('qm').onclick=()=>{q=Math.max(1,q-1);qv.textContent=q};
 document.getElementById('qp').onclick=()=>{q=Math.min(20,q+1);qv.textContent=q};
 document.getElementById('addc').onclick=()=>{const g=P.groups[gi],it=g.items[fi];
-  window.Cart&&Cart.add({code:P.code,name:P.name,fabric:g.label+', '+it.name,hex:it.hex,qty:q});q=1;qv.textContent=1};
+  window.Cart&&Cart.add({code:P.code,name:P.name,fabric:g.label+', '+it.name,hex:it.hex,price:g.price||0,qty:q});q=1;qv.textContent=1};
 </script>
