@@ -187,7 +187,7 @@ dd{font-size:16px}
     l.innerHTML=items.map(function(it,i){return '<div class="cit"><i style="background:'+esc(it.hex||'#ddd')+'"></i><div class="cin"><b>'+esc(it.name)+'</b><span>'+esc(it.fabric)+'</span>'+(it.price?'<span><b>'+mzn(it.price*it.qty)+'</b>'+(it.qty>1?' ('+mzn(it.price)+' cada)':'')+'</span>':'')+'</div>'+
       '<div class="cq"><button type="button" data-q="-1" data-i="'+i+'" aria-label="Menos">−</button><output>'+it.qty+'</output><button type="button" data-q="1" data-i="'+i+'" aria-label="Mais">+</button></div>'+
       '<button type="button" class="crm" data-r="'+i+'" aria-label="Remover">×</button></div>'}).join('');
-    var T=total();if(T)l.innerHTML+='<div class="cn" style="display:flex;justify-content:space-between;font-size:18px;margin-top:12px;padding-top:10px;border-top:1px solid #ddd"><span>Total (IVA incluído)</span><b>'+mzn(T)+'</b></div><p class="cn">Preço final, IVA incluído, no tecido escolhido. Sem pagamento agora.</p>';
+    var T=total();if(T)l.innerHTML+='<div class="cn" style="display:flex;justify-content:space-between;font-size:18px;margin-top:12px;padding-top:10px;border-top:1px solid #ddd"><span>Total (IVA incluído)</span><b>'+mzn(T)+'</b></div><p class="cn">Preço final, IVA incluído, no tecido escolhido. Pagamento: 75% no momento da compra e 25% na entrega.</p>';
     l.querySelectorAll('[data-q]').forEach(function(b){b.onclick=function(){var it=items[+b.dataset.i];it.qty=Math.max(1,Math.min(20,it.qty+ +b.dataset.q));save();draw()}});
     l.querySelectorAll('[data-r]').forEach(function(b){b.onclick=function(){items.splice(+b.dataset.r,1);save();draw()}});
   }
