@@ -1,14 +1,16 @@
 <!doctype html><html lang="pt"><link rel="icon" href="data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 64 64'%3E%3Crect width='64' height='64' fill='%23181916'/%3E%3Ctext x='32' y='46' font-family='Georgia,serif' font-size='40' text-anchor='middle' fill='%23f4f3ee'%3EI%3C/text%3E%3C/svg%3E"><meta charset="utf-8"><meta name="viewport" content="width=device-width,initial-scale=1,viewport-fit=cover">
 <title>Poltrona Concha</title>
-<link rel="preconnect" href="https://fonts.googleapis.com"><link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Cormorant+Garamond:ital,wght@0,400;0,500;1,400&family=Jost:wght@300;400;500&display=swap">
+<link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Instrument+Serif:ital@0;1&family=Hanken+Grotesk:wght@400;500;600&display=swap">
 <style>/* Montra pública. Layout: cabeçalho fino, hero com a peça em grande, coleção em cartões amplos, 3 passos, rodapé. */
 :root{
   --bg:#f2f2ef; --panel:#fafaf8; --ink:#181916; --muted:#6a6c66; --line:#d8d9d3; --accent:#8a6d3b; --btn:#181916; --btn-ink:#f4f3ee; --stage:#e4e5e1;
   --f-d:'Instrument Serif','Times New Roman',Georgia,serif;
   --f-b:'Hanken Grotesk','Helvetica Neue',Arial,sans-serif;
 }
-
-
+@media (prefers-color-scheme: dark){:root:not([data-theme="light"]){
+  --bg:#121311; --panel:#1a1b18; --ink:#eceae3; --muted:#9a9c94; --line:#2c2d29; --accent:#c4a56a; --btn:#eceae3; --btn-ink:#121311; --stage:#1f201d; color-scheme:dark}}
+:root[data-theme="dark"]{
+  --bg:#121311; --panel:#1a1b18; --ink:#eceae3; --muted:#9a9c94; --line:#2c2d29; --accent:#c4a56a; --btn:#eceae3; --btn-ink:#121311; --stage:#1f201d; color-scheme:dark}
 *{box-sizing:border-box}
 html{scroll-behavior:smooth}
 body{margin:0;background:var(--bg);color:var(--ink);font:16px/1.6 var(--f-b);-webkit-font-smoothing:antialiased;
@@ -119,72 +121,9 @@ dd{font-size:16px}
 .ci{border:1px solid var(--line);padding:14px;margin:16px 0 0}.ci legend{padding:0 8px;font-size:14px}
 #cf .btn{margin-top:20px;justify-content:center}
 #cf .btn[disabled]{opacity:.5}
-/* Veloura Interiors: tema branco, elegante. Sobrepõe public.css. */
-:root{--bg:#ffffff;--panel:#ffffff;--ink:#151515;--muted:#76746e;--line:#ebe9e4;--accent:#9a8667;--btn:#151515;--btn-ink:#ffffff;--stage:#f6f5f2;
-  --f-d:'Cormorant Garamond','Times New Roman',Georgia,serif;--f-b:'Jost','Helvetica Neue',Arial,sans-serif;color-scheme:light}
-body{background:#fff;font:15px/1.65 var(--f-b);letter-spacing:.01em}
-.wrap{max-width:1320px}
-h1,h2{font-family:var(--f-d);font-weight:400;letter-spacing:0}
-h1{font-size:clamp(40px,6vw,84px);line-height:1.02}
-.lead{font-weight:300}
-.btn{font:400 12px var(--f-b);letter-spacing:.22em;padding:16px 30px}
-/* cabeçalho */
-.vbar{position:sticky;top:0;z-index:40;background:rgba(255,255,255,.86);backdrop-filter:saturate(1.4) blur(14px);-webkit-backdrop-filter:saturate(1.4) blur(14px);
-  display:grid;grid-template-columns:1fr auto 1fr;align-items:center;gap:16px;padding-block:18px;border-bottom:1px solid var(--line);margin-inline:calc(-1*max(20px,env(safe-area-inset-left,0px)));padding-inline:max(20px,env(safe-area-inset-left,0px))}
-.vbar nav{display:flex;gap:26px;font-size:12px;letter-spacing:.2em;text-transform:uppercase}
-.vbar nav a{text-decoration:none;color:var(--muted)}.vbar nav a:hover{color:var(--ink)}
-.vbar .right{justify-self:end}
-.vlogo{display:block;justify-self:center}.vlogo img{height:46px;width:auto;display:block}
-.cartbtn{font:400 12px var(--f-b);letter-spacing:.2em;border-color:var(--line)}
-@media(max-width:720px){.vbar{grid-template-columns:auto 1fr;}.vbar nav.left{display:none}.vlogo{justify-self:start}.vlogo img{height:34px}}
-/* hero 3D */
-.vhero{text-align:center;padding-block:64px 24px}
-.vhero .eyebrow{color:var(--accent);letter-spacing:.32em;font-size:11px}
-.vhero h1 em{font-style:italic;color:var(--accent)}
-.vhero .lead{margin:20px auto 0;max-width:52ch}
-.vhero .cta{display:flex;justify-content:center;flex-wrap:wrap;gap:14px;margin-top:30px}
-.vheroimg{margin:48px 0 0}.vheroimg img{width:100%;aspect-ratio:16/8;object-fit:cover;display:block;background:var(--stage)}
-@media(max-width:720px){.vheroimg img{aspect-ratio:4/3}}
-/* filtros */
-.filters{position:sticky;top:83px;z-index:30;background:rgba(255,255,255,.92);backdrop-filter:blur(10px);-webkit-backdrop-filter:blur(10px);
-  display:flex;gap:10px;flex-wrap:wrap;justify-content:center;padding:16px 0;border-bottom:1px solid var(--line)}
-@media(max-width:720px){.filters{top:70px;justify-content:flex-start;flex-wrap:nowrap;overflow-x:auto;scrollbar-width:none}}
-.fbtn{font:400 12px var(--f-b);letter-spacing:.18em;text-transform:uppercase;white-space:nowrap;padding:10px 18px;border:1px solid var(--line);background:#fff;color:var(--muted);border-radius:999px;cursor:pointer;transition:all .25s}
-.fbtn:hover{color:var(--ink);border-color:var(--ink)}
-.fbtn[aria-pressed="true"]{background:var(--ink);color:#fff;border-color:var(--ink)}
-.fbtn small{opacity:.6;margin-left:6px;letter-spacing:0}
-/* coleção */
-.vcol{padding-block:56px 40px}
-.vgrid{display:grid;grid-template-columns:repeat(auto-fill,minmax(300px,1fr));gap:56px 32px}
-.vcard{text-decoration:none;display:block}
-.vcard[hidden]{display:none}
-.vcard .ph{position:relative;aspect-ratio:4/3;overflow:hidden;background:var(--stage)}
-.vcard .ph img{position:absolute;inset:0;width:100%;height:100%;object-fit:cover;transition:opacity .6s ease,transform 1.2s ease}
-.vcard .ph img.b{opacity:0}
-.vcard:hover .ph img.b{opacity:1}.vcard:hover .ph img{transform:scale(1.035)}
-.vcard .info{display:flex;justify-content:space-between;align-items:baseline;gap:12px;margin-top:16px}
-.vcard h3{font:400 28px/1.1 var(--f-d);margin:0}
-.vcard p{margin:4px 0 0;color:var(--muted);font-size:14px;font-weight:300}
-.vcard .tag{font-size:10px;letter-spacing:.2em;text-transform:uppercase;color:var(--accent);white-space:nowrap}
-.secintro{text-align:center;margin:0 auto 40px;max-width:60ch}
-.secintro h2{font-size:clamp(32px,4vw,52px)}
-.secintro p{color:var(--muted);font-weight:300;margin:8px 0 0}
-.fine{font-size:12px;color:var(--muted);text-align:center;margin:48px 0 0;letter-spacing:.04em}
-/* passos */
-.vsteps{padding-block:80px;border-top:1px solid var(--line);display:grid;grid-template-columns:repeat(auto-fit,minmax(220px,1fr));gap:40px;list-style:none;margin:0;padding-left:0;padding-right:0}
-.vsteps li{text-align:center}
-.vsteps .n{font:italic 400 40px/1 var(--f-d);color:var(--accent)}
-.vsteps h3{font:400 26px/1.15 var(--f-d);margin:12px 0 6px}.vsteps p{margin:0;color:var(--muted);font-weight:300}
-.vfoot{border-top:1px solid var(--line);padding-block:48px 56px;display:grid;justify-items:center;gap:14px;text-align:center;color:var(--muted);font-size:14px}
-.vfoot img{height:40px;width:auto}
-/* página da peça */
-.v3{background:var(--stage)}
-.side .eyebrow{color:var(--accent)}
-.gal img{background:var(--stage)}
-
 </style>
 <div class="wrap">
-<header class="vbar"><nav class="left"><a href="./#colecao">Coleção</a><a href="./#como">Como funciona</a><a href="catalogo-veloura.pdf" target="_blank" rel="noopener">Catálogo (PDF)</a></nav><a class="vlogo" href="./" aria-label="Veloura Interiors, início"><img src="assets/brand/veloura-logo.png" alt="Veloura Interiors by Creatus"></a><div class="right"><button type="button" class="cartbtn" data-cart-open>Pedido <span class="cartn">0</span></button></div></header>
+<header class="bar"><a class="brand" href="./"><span class="lg1">Indico</span><span class="lg2">Furniture</span></a><nav><a href="./#colecao">Coleção</a><button type="button" class="cartbtn" data-cart-open>Pedido <span class="cartn">0</span></button></nav></header>
 <main class="piece">
 <div>
   <div class="v3" id="v3" role="img" aria-label="Vista 360 da peça, arraste para rodar"><img id="spin" alt="" draggable="false"><span class="vh" id="vh">arraste para rodar</span><div class="vb"><button type="button" id="sl" aria-label="Rodar para a esquerda">‹</button><button type="button" id="sr" aria-label="Rodar para a direita">›</button></div></div>
@@ -200,18 +139,21 @@ h1{font-size:clamp(40px,6vw,84px);line-height:1.02}
 <p class="mat" id="mat"></p>
 <div class="sw" id="sw"></div>
 <p class="mat">Escolhido: <b id="chosen" style="color:var(--ink);font-weight:500"></b>. As cores no ecrã são aproximadas.</p></section>
+<p class="price" id="price" style="font-size:28px;margin:18px 0 4px;font-family:'Instrument Serif',serif"></p><p class="pnote" style="margin-top:0">Preço indicativo, por peça, no tecido escolhido. Confirmado quando recebermos o seu pedido.</p>
 <div class="addrow"><div class="qty" role="group" aria-label="Quantidade"><button type="button" id="qm" aria-label="Menos">−</button><output id="qv">1</output><button type="button" id="qp" aria-label="Mais">+</button></div><button type="button" class="btn" id="addc">Adicionar ao pedido</button></div>
 <p class="pnote"><b style="color:var(--ink);font-weight:500">Construímos a peça inteira em 10 dias.</b> Sem pagamento agora: envia o pedido e respondemos pessoalmente. Também pode <a href="#" data-cart-open>falar connosco ou marcar uma reunião</a>.</p>
 </div>
 </main>
 <script>/* Carrinho e pedido. Guarda no navegador, envia o pedido ao n8n (email imediato) e, se falhar, abre o WhatsApp. */
 (function(){
-  var CFG={"brand": "Veloura Interiors", "webhook": "https://backend.automationbig8agency.com/webhook/indico-furniture-pedido", "whatsapp": "258857566614"};
+  var CFG={"brand": "Indico Furniture", "webhook": "https://backend.automationbig8agency.com/webhook/indico-furniture-pedido", "whatsapp": "258857566614"};
   var KEY='indico_cart_v1',MAX=5*1024*1024;
   var items=[];
   try{items=JSON.parse(localStorage.getItem(KEY)||'[]')}catch(e){items=[]}
   function save(){try{localStorage.setItem(KEY,JSON.stringify(items))}catch(e){}}
   function count(){return items.reduce(function(a,i){return a+i.qty},0)}
+  function mzn(n){return Math.round(n).toLocaleString('pt-PT')+' MZN'}
+  function total(){return items.reduce(function(a,i){return a+(i.price||0)*i.qty},0)}
   function esc(s){return String(s).replace(/&/g,'&amp;').replace(/</g,'&lt;').replace(/"/g,'&quot;')}
 
   var d=document.createElement('div');d.id='cartwrap';
@@ -251,9 +193,10 @@ h1{font-size:clamp(40px,6vw,84px);line-height:1.02}
     document.querySelectorAll('.cartn').forEach(function(n){n.textContent=count()});
     var l=$('cl');if(!l)return;
     if(!items.length){l.innerHTML='<p class="cn">O carrinho está vazio. Escolha uma peça, o tecido e a quantidade.</p>';return}
-    l.innerHTML=items.map(function(it,i){return '<div class="cit"><i style="background:'+esc(it.hex||'#ddd')+'"></i><div class="cin"><b>'+esc(it.name)+'</b><span>'+esc(it.fabric)+'</span></div>'+
+    l.innerHTML=items.map(function(it,i){return '<div class="cit"><i style="background:'+esc(it.hex||'#ddd')+'"></i><div class="cin"><b>'+esc(it.name)+'</b><span>'+esc(it.fabric)+'</span>'+(it.price?'<span><b>'+mzn(it.price*it.qty)+'</b>'+(it.qty>1?' ('+mzn(it.price)+' cada)':'')+'</span>':'')+'</div>'+
       '<div class="cq"><button type="button" data-q="-1" data-i="'+i+'" aria-label="Menos">−</button><output>'+it.qty+'</output><button type="button" data-q="1" data-i="'+i+'" aria-label="Mais">+</button></div>'+
       '<button type="button" class="crm" data-r="'+i+'" aria-label="Remover">×</button></div>'}).join('');
+    var T=total();if(T)l.innerHTML+='<div class="cn" style="display:flex;justify-content:space-between;font-size:18px;margin-top:12px;padding-top:10px;border-top:1px solid #ddd"><span>Total</span><b>'+mzn(T)+'</b></div><p class="cn">Preço final da peça no tecido escolhido. Sem pagamento agora.</p>';
     l.querySelectorAll('[data-q]').forEach(function(b){b.onclick=function(){var it=items[+b.dataset.i];it.qty=Math.max(1,Math.min(20,it.qty+ +b.dataset.q));save();draw()}});
     l.querySelectorAll('[data-r]').forEach(function(b){b.onclick=function(){items.splice(+b.dataset.r,1);save();draw()}});
   }
@@ -279,7 +222,7 @@ h1{font-size:clamp(40px,6vw,84px);line-height:1.02}
         fd.append('name',v.name);fd.append('phone',v.phone);fd.append('email',v.email);
         fd.append('message',[v.message,v.meeting?'Reunião: '+v.meeting:''].filter(Boolean).join('\n'));
         fd.append('inspiration_note',v.note);fd.append('website',$('cw').value);
-        fd.append('items',JSON.stringify(items.map(function(i){return {code:i.code,name:i.name,fabric:i.fabric,qty:i.qty}})));
+        fd.append('items',JSON.stringify(items.map(function(i){return {code:i.code,name:i.name,fabric:i.fabric,qty:i.qty,unit_price_mzn:i.price||null,line_total_mzn:(i.price||0)*i.qty}})));fd.append('total_mzn',String(total()));
         fd.append('source',location.hostname||'furniture.indicostay.com');
         if(location.hash==='#teste')fd.append('test','1');
         if(file)fd.append('inspiration',file,file.name);
@@ -301,7 +244,7 @@ h1{font-size:clamp(40px,6vw,84px);line-height:1.02}
 <footer><div><b>Contacto</b><br><a href="https://wa.me/258857566614">WhatsApp +258 85 756 6614</a></div></footer>
 </div>
 <script>
-const P={"code": "FR-003", "name": "Poltrona Concha", "whatsapp": "258857566614", "webhook": "https://backend.automationbig8agency.com/webhook/indico-furniture-pedido", "booking": "", "groups": [{"id": "leather", "label": "Pele", "material": "Pele genuína de bovino.", "items": [{"name": "Ivory CG", "hex": "#E8E0CC"}, {"name": "Tan CG", "hex": "#A8693A"}, {"name": "Mocca Brown CG", "hex": "#5A3A29"}, {"name": "Dark Navy CG", "hex": "#1F2A44"}]}, {"id": "boucle", "label": "Bouclé", "material": "Bouclé, tecido texturado de poliéster, macio e resistente.", "items": [{"name": "Boucle 2 Off White", "hex": "#EFEBE1"}, {"name": "Boucle 2 Creamery", "hex": "#E9DFC8"}, {"name": "Boucle 2 Light Stone", "hex": "#CFC8BA"}, {"name": "Boucle 2 Charcoal", "hex": "#3B3D3F"}]}, {"id": "velvet", "label": "Veludo", "material": "Veludo de poliéster, macio e muito resistente ao uso.", "items": [{"name": "Plush Bone White", "hex": "#EDE7DA"}, {"name": "Plush Honey", "hex": "#C99A3C"}, {"name": "Plush Graphite", "hex": "#4A4D50"}, {"name": "Plush Peacock", "hex": "#1F6F78"}]}, {"id": "linen", "label": "Linho", "material": "Linho estampado.", "items": [{"name": "Claude Grey", "hex": "#8A8F93"}, {"name": "Claude Olive", "hex": "#6D6F3F"}, {"name": "Claude Terracotta", "hex": "#B2603F"}, {"name": "Adiantum Ochre", "hex": "#C69A3E"}]}], "start": [1, 2], "spin": {"frames": ["assets/FR-003/f0.jpg", "assets/FR-003/f1.jpg", "assets/FR-003/f2.jpg", "assets/FR-003/f3.jpg", "assets/FR-003/f4.jpg", "assets/FR-003/f5.jpg", "assets/FR-003/f6.jpg", "assets/FR-003/f7.jpg"], "fabric": "Bouclé, Boucle 2 Light Stone"}};
+const P={"code": "FR-003", "name": "Poltrona Concha", "whatsapp": "258857566614", "webhook": "https://backend.automationbig8agency.com/webhook/indico-furniture-pedido", "booking": "", "groups": [{"id": "leather", "label": "Pele", "material": "Pele genuína de bovino.", "price": 28330.0, "items": [{"name": "Ivory CG", "hex": "#E8E0CC"}, {"name": "Tan CG", "hex": "#A8693A"}, {"name": "Mocca Brown CG", "hex": "#5A3A29"}, {"name": "Dark Navy CG", "hex": "#1F2A44"}]}, {"id": "boucle", "label": "Bouclé", "material": "Bouclé, tecido texturado de poliéster, macio e resistente.", "price": 25650.0, "items": [{"name": "Boucle 2 Off White", "hex": "#EFEBE1"}, {"name": "Boucle 2 Creamery", "hex": "#E9DFC8"}, {"name": "Boucle 2 Light Stone", "hex": "#CFC8BA"}, {"name": "Boucle 2 Charcoal", "hex": "#3B3D3F"}]}, {"id": "velvet", "label": "Veludo", "material": "Veludo de poliéster, macio e muito resistente ao uso.", "price": 22290.0, "items": [{"name": "Plush Bone White", "hex": "#EDE7DA"}, {"name": "Plush Honey", "hex": "#C99A3C"}, {"name": "Plush Graphite", "hex": "#4A4D50"}, {"name": "Plush Peacock", "hex": "#1F6F78"}]}, {"id": "linen", "label": "Linho", "material": "Linho estampado.", "price": 26850.0, "items": [{"name": "Claude Grey", "hex": "#8A8F93"}, {"name": "Claude Olive", "hex": "#6D6F3F"}, {"name": "Claude Terracotta", "hex": "#B2603F"}, {"name": "Adiantum Ochre", "hex": "#C69A3E"}]}], "start": [1, 2], "spin": {"frames": ["assets/FR-003/f0.jpg", "assets/FR-003/f1.jpg", "assets/FR-003/f2.jpg", "assets/FR-003/f3.jpg", "assets/FR-003/f4.jpg", "assets/FR-003/f5.jpg", "assets/FR-003/f6.jpg", "assets/FR-003/f7.jpg"], "fabric": "Bouclé, Boucle 2 Light Stone"}};
 /* ---------- tecido ---------- */
 let gi=P.start[0],fi=P.start[1];
 const tabs=document.getElementById('tabs'),sw=document.getElementById('sw');
@@ -309,7 +252,7 @@ P.groups.forEach((g,i)=>{const b=document.createElement('button');b.type='button
 function drawG(){
   const g=P.groups[gi];
   [...tabs.children].forEach((b,i)=>b.setAttribute('aria-pressed',i===gi));
-  document.getElementById('mat').textContent=g.material;
+  document.getElementById('mat').textContent=g.material;document.getElementById('price').textContent=g.price?g.price.toLocaleString('pt-PT')+' MZN':'';
   sw.innerHTML='';
   g.items.forEach((it,i)=>{const b=document.createElement('button');b.type='button';b.className='chip';b.title=it.name;b.setAttribute('aria-pressed',i===fi);
     b.innerHTML='<i style="background:'+it.hex+'"></i><span>'+it.name+'</span>';b.onclick=()=>{fi=i;drawG()};sw.appendChild(b)});
@@ -334,5 +277,5 @@ let q=1;const qv=document.getElementById('qv');
 document.getElementById('qm').onclick=()=>{q=Math.max(1,q-1);qv.textContent=q};
 document.getElementById('qp').onclick=()=>{q=Math.min(20,q+1);qv.textContent=q};
 document.getElementById('addc').onclick=()=>{const g=P.groups[gi],it=g.items[fi];
-  window.Cart&&Cart.add({code:P.code,name:P.name,fabric:g.label+', '+it.name,hex:it.hex,qty:q});q=1;qv.textContent=1};
+  window.Cart&&Cart.add({code:P.code,name:P.name,fabric:g.label+', '+it.name,hex:it.hex,price:g.price||0,qty:q});q=1;qv.textContent=1};
 </script>

@@ -1,15 +1,16 @@
 <!doctype html><html lang="pt"><link rel="icon" href="data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 64 64'%3E%3Crect width='64' height='64' fill='%23181916'/%3E%3Ctext x='32' y='46' font-family='Georgia,serif' font-size='40' text-anchor='middle' fill='%23f4f3ee'%3EI%3C/text%3E%3C/svg%3E"><meta charset="utf-8"><meta name="viewport" content="width=device-width,initial-scale=1,viewport-fit=cover">
-<title>Veloura Interiors</title>
-<meta name="description" content="Veloura Interiors by Creatus. Sofás e mobiliário feitos por medida, no tecido e na cor que escolher.">
-<link rel="preconnect" href="https://fonts.googleapis.com"><link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Cormorant+Garamond:ital,wght@0,400;0,500;1,400&family=Jost:wght@300;400;500&display=swap">
+<title>Indico Furniture</title>
+<link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Instrument+Serif:ital@0;1&family=Hanken+Grotesk:wght@400;500;600&display=swap">
 <style>/* Montra pública. Layout: cabeçalho fino, hero com a peça em grande, coleção em cartões amplos, 3 passos, rodapé. */
 :root{
   --bg:#f2f2ef; --panel:#fafaf8; --ink:#181916; --muted:#6a6c66; --line:#d8d9d3; --accent:#8a6d3b; --btn:#181916; --btn-ink:#f4f3ee; --stage:#e4e5e1;
   --f-d:'Instrument Serif','Times New Roman',Georgia,serif;
   --f-b:'Hanken Grotesk','Helvetica Neue',Arial,sans-serif;
 }
-
-
+@media (prefers-color-scheme: dark){:root:not([data-theme="light"]){
+  --bg:#121311; --panel:#1a1b18; --ink:#eceae3; --muted:#9a9c94; --line:#2c2d29; --accent:#c4a56a; --btn:#eceae3; --btn-ink:#121311; --stage:#1f201d; color-scheme:dark}}
+:root[data-theme="dark"]{
+  --bg:#121311; --panel:#1a1b18; --ink:#eceae3; --muted:#9a9c94; --line:#2c2d29; --accent:#c4a56a; --btn:#eceae3; --btn-ink:#121311; --stage:#1f201d; color-scheme:dark}
 *{box-sizing:border-box}
 html{scroll-behavior:smooth}
 body{margin:0;background:var(--bg);color:var(--ink);font:16px/1.6 var(--f-b);-webkit-font-smoothing:antialiased;
@@ -120,94 +121,30 @@ dd{font-size:16px}
 .ci{border:1px solid var(--line);padding:14px;margin:16px 0 0}.ci legend{padding:0 8px;font-size:14px}
 #cf .btn{margin-top:20px;justify-content:center}
 #cf .btn[disabled]{opacity:.5}
-/* Veloura Interiors: tema branco, elegante. Sobrepõe public.css. */
-:root{--bg:#ffffff;--panel:#ffffff;--ink:#151515;--muted:#76746e;--line:#ebe9e4;--accent:#9a8667;--btn:#151515;--btn-ink:#ffffff;--stage:#f6f5f2;
-  --f-d:'Cormorant Garamond','Times New Roman',Georgia,serif;--f-b:'Jost','Helvetica Neue',Arial,sans-serif;color-scheme:light}
-body{background:#fff;font:15px/1.65 var(--f-b);letter-spacing:.01em}
-.wrap{max-width:1320px}
-h1,h2{font-family:var(--f-d);font-weight:400;letter-spacing:0}
-h1{font-size:clamp(40px,6vw,84px);line-height:1.02}
-.lead{font-weight:300}
-.btn{font:400 12px var(--f-b);letter-spacing:.22em;padding:16px 30px}
-/* cabeçalho */
-.vbar{position:sticky;top:0;z-index:40;background:rgba(255,255,255,.86);backdrop-filter:saturate(1.4) blur(14px);-webkit-backdrop-filter:saturate(1.4) blur(14px);
-  display:grid;grid-template-columns:1fr auto 1fr;align-items:center;gap:16px;padding-block:18px;border-bottom:1px solid var(--line);margin-inline:calc(-1*max(20px,env(safe-area-inset-left,0px)));padding-inline:max(20px,env(safe-area-inset-left,0px))}
-.vbar nav{display:flex;gap:26px;font-size:12px;letter-spacing:.2em;text-transform:uppercase}
-.vbar nav a{text-decoration:none;color:var(--muted)}.vbar nav a:hover{color:var(--ink)}
-.vbar .right{justify-self:end}
-.vlogo{display:block;justify-self:center}.vlogo img{height:46px;width:auto;display:block}
-.cartbtn{font:400 12px var(--f-b);letter-spacing:.2em;border-color:var(--line)}
-@media(max-width:720px){.vbar{grid-template-columns:auto 1fr;}.vbar nav.left{display:none}.vlogo{justify-self:start}.vlogo img{height:34px}}
-/* hero 3D */
-.vhero{text-align:center;padding-block:64px 24px}
-.vhero .eyebrow{color:var(--accent);letter-spacing:.32em;font-size:11px}
-.vhero h1 em{font-style:italic;color:var(--accent)}
-.vhero .lead{margin:20px auto 0;max-width:52ch}
-.vhero .cta{display:flex;justify-content:center;flex-wrap:wrap;gap:14px;margin-top:30px}
-.vheroimg{margin:48px 0 0}.vheroimg img{width:100%;aspect-ratio:16/8;object-fit:cover;display:block;background:var(--stage)}
-@media(max-width:720px){.vheroimg img{aspect-ratio:4/3}}
-/* filtros */
-.filters{position:sticky;top:83px;z-index:30;background:rgba(255,255,255,.92);backdrop-filter:blur(10px);-webkit-backdrop-filter:blur(10px);
-  display:flex;gap:10px;flex-wrap:wrap;justify-content:center;padding:16px 0;border-bottom:1px solid var(--line)}
-@media(max-width:720px){.filters{top:70px;justify-content:flex-start;flex-wrap:nowrap;overflow-x:auto;scrollbar-width:none}}
-.fbtn{font:400 12px var(--f-b);letter-spacing:.18em;text-transform:uppercase;white-space:nowrap;padding:10px 18px;border:1px solid var(--line);background:#fff;color:var(--muted);border-radius:999px;cursor:pointer;transition:all .25s}
-.fbtn:hover{color:var(--ink);border-color:var(--ink)}
-.fbtn[aria-pressed="true"]{background:var(--ink);color:#fff;border-color:var(--ink)}
-.fbtn small{opacity:.6;margin-left:6px;letter-spacing:0}
-/* coleção */
-.vcol{padding-block:56px 40px}
-.vgrid{display:grid;grid-template-columns:repeat(auto-fill,minmax(300px,1fr));gap:56px 32px}
-.vcard{text-decoration:none;display:block}
-.vcard[hidden]{display:none}
-.vcard .ph{position:relative;aspect-ratio:4/3;overflow:hidden;background:var(--stage)}
-.vcard .ph img{position:absolute;inset:0;width:100%;height:100%;object-fit:cover;transition:opacity .6s ease,transform 1.2s ease}
-.vcard .ph img.b{opacity:0}
-.vcard:hover .ph img.b{opacity:1}.vcard:hover .ph img{transform:scale(1.035)}
-.vcard .info{display:flex;justify-content:space-between;align-items:baseline;gap:12px;margin-top:16px}
-.vcard h3{font:400 28px/1.1 var(--f-d);margin:0}
-.vcard p{margin:4px 0 0;color:var(--muted);font-size:14px;font-weight:300}
-.vcard .tag{font-size:10px;letter-spacing:.2em;text-transform:uppercase;color:var(--accent);white-space:nowrap}
-.secintro{text-align:center;margin:0 auto 40px;max-width:60ch}
-.secintro h2{font-size:clamp(32px,4vw,52px)}
-.secintro p{color:var(--muted);font-weight:300;margin:8px 0 0}
-.fine{font-size:12px;color:var(--muted);text-align:center;margin:48px 0 0;letter-spacing:.04em}
-/* passos */
-.vsteps{padding-block:80px;border-top:1px solid var(--line);display:grid;grid-template-columns:repeat(auto-fit,minmax(220px,1fr));gap:40px;list-style:none;margin:0;padding-left:0;padding-right:0}
-.vsteps li{text-align:center}
-.vsteps .n{font:italic 400 40px/1 var(--f-d);color:var(--accent)}
-.vsteps h3{font:400 26px/1.15 var(--f-d);margin:12px 0 6px}.vsteps p{margin:0;color:var(--muted);font-weight:300}
-.vfoot{border-top:1px solid var(--line);padding-block:48px 56px;display:grid;justify-items:center;gap:14px;text-align:center;color:var(--muted);font-size:14px}
-.vfoot img{height:40px;width:auto}
-/* página da peça */
-.v3{background:var(--stage)}
-.side .eyebrow{color:var(--accent)}
-.gal img{background:var(--stage)}
-
 </style>
 <div class="wrap">
-<header class="vbar"><nav class="left"><a href="./#colecao">Coleção</a><a href="./#como">Como funciona</a><a href="catalogo-veloura.pdf" target="_blank" rel="noopener">Catálogo (PDF)</a></nav><a class="vlogo" href="./" aria-label="Veloura Interiors, início"><img src="assets/brand/veloura-logo.png" alt="Veloura Interiors by Creatus"></a><div class="right"><button type="button" class="cartbtn" data-cart-open>Pedido <span class="cartn">0</span></button></div></header>
-<section class="vhero"><p class="eyebrow">Mobiliário feito por medida</p>
-<h1>Sofás com <em>alma</em>,<br>feitos à sua medida.</h1>
-<p class="lead">Escolha a peça, o tecido e a cor. Construímos a peça inteira em 10 dias.</p>
-<div class="cta"><a class="btn" href="#colecao">Ver a coleção</a><a class="btn ghost" href="#" data-cart-open>Falar connosco</a></div>
-<figure class="vheroimg"><img src="assets/SF-F04/F04-1-ambiente.jpg" alt="Sofá Marfim"></figure></section>
-<div class="filters" id="colecao" role="group" aria-label="Filtrar por categoria"><button type="button" class="fbtn" data-f="all" aria-pressed="true">Todos<small>37</small></button><button type="button" class="fbtn" data-f="sofas" aria-pressed="false">Sofás de interior<small>15</small></button><button type="button" class="fbtn" data-f="organicos" aria-pressed="false">Sofás orgânicos e modulares<small>4</small></button><button type="button" class="fbtn" data-f="classicos" aria-pressed="false">Clássicos<small>3</small></button><button type="button" class="fbtn" data-f="exterior" aria-pressed="false">Exterior e lounge<small>5</small></button><button type="button" class="fbtn" data-f="poltronas" aria-pressed="false">Poltronas e quarto<small>10</small></button></div>
-<section class="vcol"><div class="secintro" id="si"><h2>A coleção</h2><p>Cada peça é feita sob encomenda, no tecido que escolher.</p></div>
-<div class="vgrid" id="grid"><a class="vcard" data-sec="sofas" href="SF-C01"><div class="tilt"><div class="ph"><img loading="lazy" src="assets/SF-C01/C01-2-frente.jpg" alt="Sofá Duna"><img class="b" loading="lazy" src="assets/SF-C01/C01-2-frente.jpg" alt=""></div><div class="info"><div><h3>Sofá Duna</h3><p>Seccional modular com chaise</p></div><span class="tag">Ver peça</span></div></div></a><a class="vcard" data-sec="sofas" href="SF-C02"><div class="tilt"><div class="ph"><img loading="lazy" src="assets/SF-C02/C02-1-ambiente.jpg" alt="Sofá Âmbar"><img class="b" loading="lazy" src="assets/SF-C02/C02-2-frente.jpg" alt=""></div><div class="info"><div><h3>Sofá Âmbar</h3><p>Sofá em pele com costas em canais</p></div><span class="tag">Ver peça</span></div></div></a><a class="vcard" data-sec="sofas" href="SF-C03"><div class="tilt"><div class="ph"><img loading="lazy" src="assets/SF-C03/C03-1-ambiente.jpg" alt="Sofá Musgo"><img class="b" loading="lazy" src="assets/SF-C03/C03-2-frente.jpg" alt=""></div><div class="info"><div><h3>Sofá Musgo</h3><p>Seccional em veludo com chaise</p></div><span class="tag">Ver peça</span></div></div></a><a class="vcard" data-sec="sofas" href="SF-C05"><div class="tilt"><div class="ph"><img loading="lazy" src="assets/SF-C05/C05-1-ambiente.jpg" alt="Sofá Canelado"><img class="b" loading="lazy" src="assets/SF-C05/C05-2-frente.jpg" alt=""></div><div class="info"><div><h3>Sofá Canelado</h3><p>Sofá com canais verticais</p></div><span class="tag">Ver peça</span></div></div></a><a class="vcard" data-sec="sofas" href="SF-C06"><div class="tilt"><div class="ph"><img loading="lazy" src="assets/SF-C06/C06-1-ambiente.jpg" alt="Sofá Trenó"><img class="b" loading="lazy" src="assets/SF-C06/C06-2-frente.jpg" alt=""></div><div class="info"><div><h3>Sofá Trenó</h3><p>Sofá com rolos e base em trenó</p></div><span class="tag">Ver peça</span></div></div></a><a class="vcard" data-sec="sofas" href="SF-C07"><div class="tilt"><div class="ph"><img loading="lazy" src="assets/SF-C07/C07-1-ambiente.jpg" alt="Sofá Caramelo"><img class="b" loading="lazy" src="assets/SF-C07/C07-2-frente.jpg" alt=""></div><div class="info"><div><h3>Sofá Caramelo</h3><p>Sofá em pele com braços largos</p></div><span class="tag">Ver peça</span></div></div></a><a class="vcard" data-sec="sofas" href="SF-C12"><div class="tilt"><div class="ph"><img loading="lazy" src="assets/SF-C12/C12-1-ambiente.jpg" alt="Sofá Aveia"><img class="b" loading="lazy" src="assets/SF-C12/C12-2-frente.jpg" alt=""></div><div class="info"><div><h3>Sofá Aveia</h3><p>Sofá comprido em linho</p></div><span class="tag">Ver peça</span></div></div></a><a class="vcard" data-sec="sofas" href="SF-C14"><div class="tilt"><div class="ph"><img loading="lazy" src="assets/SF-C14/C14-1-ambiente.jpg" alt="Sofá Xadrez"><img class="b" loading="lazy" src="assets/SF-C14/C14-2-frente.jpg" alt=""></div><div class="info"><div><h3>Sofá Xadrez</h3><p>Sofá fofo sobre plataforma de madeira</p></div><span class="tag">Ver peça</span></div></div></a><a class="vcard" data-sec="sofas" href="SF-C15"><div class="tilt"><div class="ph"><img loading="lazy" src="assets/SF-C15/C15-1-ambiente.jpg" alt="Sofá Nórdico"><img class="b" loading="lazy" src="assets/SF-C15/C15-2-frente.jpg" alt=""></div><div class="info"><div><h3>Sofá Nórdico</h3><p>Sofá com estrutura de madeira à vista</p></div><span class="tag">Ver peça</span></div></div></a><a class="vcard" data-sec="sofas" href="SF-F01"><div class="tilt"><div class="ph"><img loading="lazy" src="assets/SF-F01/F01-1-ambiente.jpg" alt="Sofá Canela"><img class="b" loading="lazy" src="assets/SF-F01/F01-2-frente.jpg" alt=""></div><div class="info"><div><h3>Sofá Canela</h3><p>Sofá com chaise e pés metálicos</p></div><span class="tag">Ver peça</span></div></div></a><a class="vcard" data-sec="sofas" href="SF-F03"><div class="tilt"><div class="ph"><img loading="lazy" src="assets/SF-F03/F03-1-ambiente.jpg" alt="Sofá Areia"><img class="b" loading="lazy" src="assets/SF-F03/F03-2-frente.jpg" alt=""></div><div class="info"><div><h3>Sofá Areia</h3><p>Sofá de dois lugares</p></div><span class="tag">Ver peça</span></div></div></a><a class="vcard" data-sec="sofas" href="SF-F04"><div class="tilt"><div class="ph"><img loading="lazy" src="assets/SF-F04/F04-1-ambiente.jpg" alt="Sofá Marfim"><img class="b" loading="lazy" src="assets/SF-F04/F04-2-frente.jpg" alt=""></div><div class="info"><div><h3>Sofá Marfim</h3><p>Seccional com chaise em bouclé</p></div><span class="tag">Ver peça</span></div></div></a><a class="vcard" data-sec="sofas" href="SF-F05"><div class="tilt"><div class="ph"><img loading="lazy" src="assets/SF-F05/F05-1-ambiente.jpg" alt="Sofá Nogueira"><img class="b" loading="lazy" src="assets/SF-F05/F05-2-frente.jpg" alt=""></div><div class="info"><div><h3>Sofá Nogueira</h3><p>Sofá sobre base de nogueira</p></div><span class="tag">Ver peça</span></div></div></a><a class="vcard" data-sec="sofas" href="SF-F06"><div class="tilt"><div class="ph"><img loading="lazy" src="assets/SF-F06/F06-1-ambiente.jpg" alt="Sofá Oliva"><img class="b" loading="lazy" src="assets/SF-F06/F06-2-frente.jpg" alt=""></div><div class="info"><div><h3>Sofá Oliva</h3><p>Sofá em pele com pespontos</p></div><span class="tag">Ver peça</span></div></div></a><a class="vcard" data-sec="sofas" href="SF-F07"><div class="tilt"><div class="ph"><img loading="lazy" src="assets/SF-F07/F07-1-ambiente.jpg" alt="Sofá Rolo"><img class="b" loading="lazy" src="assets/SF-F07/F07-2-frente.jpg" alt=""></div><div class="info"><div><h3>Sofá Rolo</h3><p>Sofá em bouclé com braços em rolo</p></div><span class="tag">Ver peça</span></div></div></a><a class="vcard" data-sec="organicos" href="SF-C04"><div class="tilt"><div class="ph"><img loading="lazy" src="assets/SF-C04/C04-1-ambiente.jpg" alt="Sofá Nuvem"><img class="b" loading="lazy" src="assets/SF-C04/C04-2-frente.jpg" alt=""></div><div class="info"><div><h3>Sofá Nuvem</h3><p>Sofá de almofadas fofas</p></div><span class="tag">Ver peça</span></div></div></a><a class="vcard" data-sec="organicos" href="SF-C09"><div class="tilt"><div class="ph"><img loading="lazy" src="assets/SF-C09/C09-1-ambiente.jpg" alt="Sofá Lua"><img class="b" loading="lazy" src="assets/SF-C09/C09-2-frente.jpg" alt=""></div><div class="info"><div><h3>Sofá Lua</h3><p>Sofá curvo em bouclé</p></div><span class="tag">Ver peça</span></div></div></a><a class="vcard" data-sec="organicos" href="SF-C11"><div class="tilt"><div class="ph"><img loading="lazy" src="assets/SF-C11/C11-1-ambiente.jpg" alt="Sofá Onda"><img class="b" loading="lazy" src="assets/SF-C11/C11-2-frente.jpg" alt=""></div><div class="info"><div><h3>Sofá Onda</h3><p>Sofá sem braços em bouclé capitonê</p></div><span class="tag">Ver peça</span></div></div></a><a class="vcard" data-sec="organicos" href="SF-F02"><div class="tilt"><div class="ph"><img loading="lazy" src="assets/SF-F02/F02-1-ambiente.jpg" alt="Conjunto Seixo"><img class="b" loading="lazy" src="assets/SF-F02/F02-2-frente.jpg" alt=""></div><div class="info"><div><h3>Conjunto Seixo</h3><p>Conjunto modular orgânico</p></div><span class="tag">Ver peça</span></div></div></a><a class="vcard" data-sec="classicos" href="SF-C08"><div class="tilt"><div class="ph"><img loading="lazy" src="assets/SF-C08/C08-1-ambiente.jpg" alt="Sofá Terracota"><img class="b" loading="lazy" src="assets/SF-C08/C08-2-frente.jpg" alt=""></div><div class="info"><div><h3>Sofá Terracota</h3><p>Sofá em veludo com rodízios</p></div><span class="tag">Ver peça</span></div></div></a><a class="vcard" data-sec="classicos" href="SF-C10"><div class="tilt"><div class="ph"><img loading="lazy" src="assets/SF-C10/C10-1-ambiente.jpg" alt="Sofá Herança"><img class="b" loading="lazy" src="assets/SF-C10/C10-2-frente.jpg" alt=""></div><div class="info"><div><h3>Sofá Herança</h3><p>Sofá capitonê com pés torneados</p></div><span class="tag">Ver peça</span></div></div></a><a class="vcard" data-sec="classicos" href="SF-C13"><div class="tilt"><div class="ph"><img loading="lazy" src="assets/SF-C13/C13-1-ambiente.jpg" alt="Chesterfield Lilás"><img class="b" loading="lazy" src="assets/SF-C13/C13-2-frente.jpg" alt=""></div><div class="info"><div><h3>Chesterfield Lilás</h3><p>Chesterfield em veludo</p></div><span class="tag">Ver peça</span></div></div></a><a class="vcard" data-sec="exterior" href="SF-F08"><div class="tilt"><div class="ph"><img loading="lazy" src="assets/SF-F08/F08-1-ambiente.jpg" alt="Lounge Carvão"><img class="b" loading="lazy" src="assets/SF-F08/F08-2-frente.jpg" alt=""></div><div class="info"><div><h3>Lounge Carvão</h3><p>Sofá de exterior sobre plataforma de teca</p></div><span class="tag">Ver peça</span></div></div></a><a class="vcard" data-sec="exterior" href="SF-F09"><div class="tilt"><div class="ph"><img loading="lazy" src="assets/SF-F09/F09-1-ambiente.jpg" alt="Conjunto Pátio"><img class="b" loading="lazy" src="assets/SF-F09/F09-2-frente.jpg" alt=""></div><div class="info"><div><h3>Conjunto Pátio</h3><p>Conjunto de exterior em U</p></div><span class="tag">Ver peça</span></div></div></a><a class="vcard" data-sec="exterior" href="SF-F10"><div class="tilt"><div class="ph"><img loading="lazy" src="assets/SF-F10/F10-1-ambiente.jpg" alt="Sofá Moldura"><img class="b" loading="lazy" src="assets/SF-F10/F10-2-frente.jpg" alt=""></div><div class="info"><div><h3>Sofá Moldura</h3><p>Seccional de exterior com estrutura de teca</p></div><span class="tag">Ver peça</span></div></div></a><a class="vcard" data-sec="exterior" href="SF-F11"><div class="tilt"><div class="ph"><img loading="lazy" src="assets/SF-F11/F11-1-ambiente.jpg" alt="Lounge Acácia"><img class="b" loading="lazy" src="assets/SF-F11/F11-2-frente.jpg" alt=""></div><div class="info"><div><h3>Lounge Acácia</h3><p>Lounge de exterior com chaise</p></div><span class="tag">Ver peça</span></div></div></a><a class="vcard" data-sec="exterior" href="SF-F12"><div class="tilt"><div class="ph"><img loading="lazy" src="assets/SF-F12/F12-1-ambiente.jpg" alt="Lounge Bruma"><img class="b" loading="lazy" src="assets/SF-F12/F12-2-frente.jpg" alt=""></div><div class="info"><div><h3>Lounge Bruma</h3><p>Canto de exterior em teca e cinza claro</p></div><span class="tag">Ver peça</span></div></div></a><a class="vcard" data-sec="poltronas" href="FR-001"><div class="tilt"><div class="ph"><img loading="lazy" src="assets/FR-001/1-hero-living-room-a.jpeg" alt="Poltrona giratória"><img class="b" loading="lazy" src="assets/FR-001/1-hero-living-room-b.jpeg" alt=""></div><div class="info"><div><h3>Poltrona giratória</h3><p>Poltrona em barril com base giratória, forrada a bouclé</p></div><span class="tag">Ver peça</span></div></div></a><a class="vcard" data-sec="poltronas" href="FR-002"><div class="tilt"><div class="ph"><img loading="lazy" src="assets/FR-002/1-quarto-a.jpeg" alt="Cama com encosto integrado"><img class="b" loading="lazy" src="assets/FR-002/1-quarto-b.jpeg" alt=""></div><div class="info"><div><h3>Cama com encosto integrado</h3><p>Cama de casal com base estofada e encosto alto em canais verticais</p></div><span class="tag">Ver peça</span></div></div></a><a class="vcard" data-sec="poltronas" href="FR-003"><div class="tilt"><div class="ph"><img loading="lazy" src="assets/FR-003/1-hero-living-room-a.jpeg" alt="Poltrona Concha"><img class="b" loading="lazy" src="assets/FR-003/1-hero-living-room-b.jpeg" alt=""></div><div class="info"><div><h3>Poltrona Concha</h3><p>Poltrona em concha com pés de madeira, forrada a bouclé</p></div><span class="tag">Ver peça</span></div></div></a><a class="vcard" data-sec="poltronas" href="PL-P01"><div class="tilt"><div class="ph"><img loading="lazy" src="assets/PL-P01/P01-1-ambiente.jpg" alt="Poltrona Aurora"><img class="b" loading="lazy" src="assets/PL-P01/P01-2-frente.jpg" alt=""></div><div class="info"><div><h3>Poltrona Aurora</h3><p>Poltrona baixa em bouclé sobre base de nogueira</p></div><span class="tag">Ver peça</span></div></div></a><a class="vcard" data-sec="poltronas" href="PL-P02"><div class="tilt"><div class="ph"><img loading="lazy" src="assets/PL-P02/P02-1-ambiente.jpg" alt="Poltrona Linho"><img class="b" loading="lazy" src="assets/PL-P02/P02-2-frente.jpg" alt=""></div><div class="info"><div><h3>Poltrona Linho</h3><p>Poltrona de braços retos sobre plinto de carvalho</p></div><span class="tag">Ver peça</span></div></div></a><a class="vcard" data-sec="poltronas" href="PL-P03"><div class="tilt"><div class="ph"><img loading="lazy" src="assets/PL-P03/P03-1-ambiente.jpg" alt="Poltrona Brisa"><img class="b" loading="lazy" src="assets/PL-P03/P03-2-frente.jpg" alt=""></div><div class="info"><div><h3>Poltrona Brisa</h3><p>Poltrona concha com pés pretos</p></div><span class="tag">Ver peça</span></div></div></a><a class="vcard" data-sec="poltronas" href="PL-P04"><div class="tilt"><div class="ph"><img loading="lazy" src="assets/PL-P04/P04-1-ambiente.jpg" alt="Poltrona Conhaque"><img class="b" loading="lazy" src="assets/PL-P04/P04-2-frente.jpg" alt=""></div><div class="info"><div><h3>Poltrona Conhaque</h3><p>Poltrona em pele com pés cromados</p></div><span class="tag">Ver peça</span></div></div></a><a class="vcard" data-sec="poltronas" href="PL-P05"><div class="tilt"><div class="ph"><img loading="lazy" src="assets/PL-P05/P05-1-ambiente.jpg" alt="Poltrona Arco"><img class="b" loading="lazy" src="assets/PL-P05/P05-2-frente.jpg" alt=""></div><div class="info"><div><h3>Poltrona Arco</h3><p>Poltrona com costas em arco e pés de nogueira</p></div><span class="tag">Ver peça</span></div></div></a><a class="vcard" data-sec="poltronas" href="PL-P06"><div class="tilt"><div class="ph"><img loading="lazy" src="assets/PL-P06/P06-1-ambiente.jpg" alt="Poltrona Algodão"><img class="b" loading="lazy" src="assets/PL-P06/P06-2-frente.jpg" alt=""></div><div class="info"><div><h3>Poltrona Algodão</h3><p>Poltrona macia com vivos e pés de madeira</p></div><span class="tag">Ver peça</span></div></div></a><a class="vcard" data-sec="poltronas" href="PL-P07"><div class="tilt"><div class="ph"><img loading="lazy" src="assets/PL-P07/P07-1-ambiente.jpg" alt="Poltrona Pétala"><img class="b" loading="lazy" src="assets/PL-P07/P07-2-frente.jpg" alt=""></div><div class="info"><div><h3>Poltrona Pétala</h3><p>Poltrona orgânica em bouclé</p></div><span class="tag">Ver peça</span></div></div></a></div>
-<p class="fine">Imagens ilustrativas, geradas por computador. Medidas aproximadas, ajustáveis por encomenda.</p></section>
-<ol class="vsteps" id="como">
-<li><span class="n">i.</span><h3>Escolha a peça</h3><p>Veja-a de todos os lados, com as medidas.</p></li>
-<li><span class="n">ii.</span><h3>Escolha o tecido</h3><p>Pele, bouclé, veludo ou linho, em várias cores.</p></li>
-<li><span class="n">iii.</span><h3>Envie o pedido</h3><p>Respondemos pessoalmente. Sem pagamento agora.</p></li>
-<li><span class="n">iv.</span><h3>Feita em 10 dias</h3><p>A peça inteira, construída por nós.</p></li></ol>
+<header class="bar"><a class="brand" href="./"><span class="lg1">Indico</span><span class="lg2">Furniture</span></a><nav><a href="#colecao">Coleção</a><a href="#como">Como funciona</a><button type="button" class="cartbtn" data-cart-open>Pedido <span class="cartn">0</span></button></nav></header>
+<section class="hero"><div><p class="eyebrow">Mobiliário por medida</p><h1>Peças <em>feitas para si</em>, em 10 dias.</h1>
+<p class="lead">Construímos a peça inteira em 10 dias, no tecido e na cor que escolher. Escolha a peça, o tecido e a quantidade, ou marque uma reunião para a tornar sua.</p>
+<div class="cta"><a class="btn" href="#colecao">Ver a coleção</a><a class="btn ghost" href="#" data-cart-open>Falar connosco</a></div></div>
+<img src="assets/FR-001/1-hero-living-room-a.jpeg" alt="Poltrona giratória"></section>
+<section class="sec" id="colecao"><div class="head"><h2>A coleção</h2><p class="lead" style="margin:0">Cada peça é feita sob encomenda. A coleção cresce com o tempo.</p></div>
+<div class="grid"><a class="card" href="FR-001"><div class="ph"><img loading="lazy" src="assets/FR-001/1-hero-living-room-a.jpeg" alt="Poltrona giratória"></div><h3>Poltrona giratória</h3><p>Poltrona em barril com base giratória, forrada a bouclé</p><div class="meta">A partir de 21 510 MZN</div></a><a class="card" href="FR-002"><div class="ph"><img loading="lazy" src="assets/FR-002/1-quarto-a.jpeg" alt="Cama com encosto integrado"></div><h3>Cama com encosto integrado</h3><p>Cama de casal com base estofada e encosto alto em canais verticais</p><div class="meta">A partir de 51 400 MZN</div></a><a class="card" href="FR-003"><div class="ph"><img loading="lazy" src="assets/FR-003/1-hero-living-room-a.jpeg" alt="Poltrona Concha"></div><h3>Poltrona Concha</h3><p>Poltrona em concha com pés de madeira, forrada a bouclé</p><div class="meta">A partir de 22 290 MZN</div></a></div></section>
+<section class="sec" id="como"><div class="head"><h2>Como funciona</h2></div>
+<ol class="steps" style="padding:0;margin:0;display:grid;grid-template-columns:repeat(auto-fit,minmax(240px,1fr));gap:36px">
+<li><span class="n">01</span><h3>Escolha a peça</h3><p>Veja-a de todos os lados, com as medidas.</p></li>
+<li><span class="n">02</span><h3>Escolha o tecido</h3><p>Pele, bouclé, veludo ou linho, em várias cores.</p></li>
+<li><span class="n">03</span><h3>Envie o pedido</h3><p>Recebemo-lo na hora. Marque uma reunião se quiser personalizar.</p></li><li><span class="n">04</span><h3>Construímos em 10 dias</h3><p>A peça inteira, feita por nós, do início ao fim.</p></li></ol></section>
 <script>/* Carrinho e pedido. Guarda no navegador, envia o pedido ao n8n (email imediato) e, se falhar, abre o WhatsApp. */
 (function(){
-  var CFG={"brand": "Veloura Interiors", "webhook": "https://backend.automationbig8agency.com/webhook/indico-furniture-pedido", "whatsapp": "258857566614"};
+  var CFG={"brand": "Indico Furniture", "webhook": "https://backend.automationbig8agency.com/webhook/indico-furniture-pedido", "whatsapp": "258857566614"};
   var KEY='indico_cart_v1',MAX=5*1024*1024;
   var items=[];
   try{items=JSON.parse(localStorage.getItem(KEY)||'[]')}catch(e){items=[]}
   function save(){try{localStorage.setItem(KEY,JSON.stringify(items))}catch(e){}}
   function count(){return items.reduce(function(a,i){return a+i.qty},0)}
+  function mzn(n){return Math.round(n).toLocaleString('pt-PT')+' MZN'}
+  function total(){return items.reduce(function(a,i){return a+(i.price||0)*i.qty},0)}
   function esc(s){return String(s).replace(/&/g,'&amp;').replace(/</g,'&lt;').replace(/"/g,'&quot;')}
 
   var d=document.createElement('div');d.id='cartwrap';
@@ -247,9 +184,10 @@ h1{font-size:clamp(40px,6vw,84px);line-height:1.02}
     document.querySelectorAll('.cartn').forEach(function(n){n.textContent=count()});
     var l=$('cl');if(!l)return;
     if(!items.length){l.innerHTML='<p class="cn">O carrinho está vazio. Escolha uma peça, o tecido e a quantidade.</p>';return}
-    l.innerHTML=items.map(function(it,i){return '<div class="cit"><i style="background:'+esc(it.hex||'#ddd')+'"></i><div class="cin"><b>'+esc(it.name)+'</b><span>'+esc(it.fabric)+'</span></div>'+
+    l.innerHTML=items.map(function(it,i){return '<div class="cit"><i style="background:'+esc(it.hex||'#ddd')+'"></i><div class="cin"><b>'+esc(it.name)+'</b><span>'+esc(it.fabric)+'</span>'+(it.price?'<span><b>'+mzn(it.price*it.qty)+'</b>'+(it.qty>1?' ('+mzn(it.price)+' cada)':'')+'</span>':'')+'</div>'+
       '<div class="cq"><button type="button" data-q="-1" data-i="'+i+'" aria-label="Menos">−</button><output>'+it.qty+'</output><button type="button" data-q="1" data-i="'+i+'" aria-label="Mais">+</button></div>'+
       '<button type="button" class="crm" data-r="'+i+'" aria-label="Remover">×</button></div>'}).join('');
+    var T=total();if(T)l.innerHTML+='<div class="cn" style="display:flex;justify-content:space-between;font-size:18px;margin-top:12px;padding-top:10px;border-top:1px solid #ddd"><span>Total</span><b>'+mzn(T)+'</b></div><p class="cn">Preço final da peça no tecido escolhido. Sem pagamento agora.</p>';
     l.querySelectorAll('[data-q]').forEach(function(b){b.onclick=function(){var it=items[+b.dataset.i];it.qty=Math.max(1,Math.min(20,it.qty+ +b.dataset.q));save();draw()}});
     l.querySelectorAll('[data-r]').forEach(function(b){b.onclick=function(){items.splice(+b.dataset.r,1);save();draw()}});
   }
@@ -275,7 +213,7 @@ h1{font-size:clamp(40px,6vw,84px);line-height:1.02}
         fd.append('name',v.name);fd.append('phone',v.phone);fd.append('email',v.email);
         fd.append('message',[v.message,v.meeting?'Reunião: '+v.meeting:''].filter(Boolean).join('\n'));
         fd.append('inspiration_note',v.note);fd.append('website',$('cw').value);
-        fd.append('items',JSON.stringify(items.map(function(i){return {code:i.code,name:i.name,fabric:i.fabric,qty:i.qty}})));
+        fd.append('items',JSON.stringify(items.map(function(i){return {code:i.code,name:i.name,fabric:i.fabric,qty:i.qty,unit_price_mzn:i.price||null,line_total_mzn:(i.price||0)*i.qty}})));fd.append('total_mzn',String(total()));
         fd.append('source',location.hostname||'furniture.indicostay.com');
         if(location.hash==='#teste')fd.append('test','1');
         if(file)fd.append('inspiration',file,file.name);
@@ -293,17 +231,4 @@ h1{font-size:clamp(40px,6vw,84px);line-height:1.02}
     btn.disabled=false;
   }
 })();
-</script><footer class="vfoot"><img src="assets/brand/veloura-logo.png" alt="Veloura Interiors by Creatus"><div><b>Contacto</b><br><a href="https://wa.me/258857566614">WhatsApp +258 85 756 6614</a></div></footer></div>
-<script>
-(function(){
-var INTRO={"sofas": ["Sofás de interior", "Linhas limpas para a sala: de dois lugares a seccionais com chaise."], "organicos": ["Sofás orgânicos e modulares", "Formas curvas e módulos que se juntam como quiser."], "classicos": ["Clássicos", "Capitonê, veludo e pés torneados, feitos à medida."], "exterior": ["Exterior e lounge", "Lounges para terraços, piscinas e jardins."], "poltronas": ["Poltronas e quarto", "Poltronas e camas da coleção."]};
-var red=matchMedia('(prefers-reduced-motion: reduce)').matches;
-/* filtros */
-var btns=[].slice.call(document.querySelectorAll('.fbtn')),cards=[].slice.call(document.querySelectorAll('.vcard')),si=document.getElementById('si');
-function setF(f){btns.forEach(function(b){b.setAttribute('aria-pressed',b.dataset.f===f)});cards.forEach(function(c){c.hidden=!(f==='all'||c.dataset.sec===f)});
-var t=INTRO[f];si.innerHTML=t?'<h2>'+t[0]+'</h2><p>'+t[1]+'</p>':'<h2>A coleção</h2><p>Cada peça é feita sob encomenda, no tecido que escolher.</p>';
-try{history.replaceState(null,'',f==='all'?'#colecao':'#'+f)}catch(e){}}
-btns.forEach(function(b){b.onclick=function(){setF(b.dataset.f);document.getElementById('colecao').scrollIntoView({behavior:red?'auto':'smooth'})}});
-var h=location.hash.slice(1);if(INTRO[h])setF(h);
-})();
-</script>
+</script><footer><div><b>Contacto</b><br><a href="https://wa.me/258857566614">WhatsApp +258 85 756 6614</a></div></footer></div>
