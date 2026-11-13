@@ -1,0 +1,151 @@
+<!doctype html><html lang="pt"><link rel="icon" href="data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 64 64'%3E%3Crect width='64' height='64' fill='%23181916'/%3E%3Ctext x='32' y='46' font-family='Georgia,serif' font-size='40' text-anchor='middle' fill='%23f4f3ee'%3EI%3C/text%3E%3C/svg%3E"><meta charset="utf-8"><meta name="viewport" content="width=device-width,initial-scale=1,viewport-fit=cover">
+<title>Termos de uso · Indico Furniture</title>
+<link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Instrument+Serif:ital@0;1&family=Hanken+Grotesk:wght@400;500;600&display=swap">
+<style>/* Montra pública. Layout: cabeçalho fino, hero com a peça em grande, coleção em cartões amplos, 3 passos, rodapé. */
+:root{
+  --bg:#f2f2ef; --panel:#fafaf8; --ink:#181916; --muted:#6a6c66; --line:#d8d9d3; --accent:#8a6d3b; --btn:#181916; --btn-ink:#f4f3ee; --stage:#e4e5e1;
+  --f-d:'Instrument Serif','Times New Roman',Georgia,serif;
+  --f-b:'Hanken Grotesk','Helvetica Neue',Arial,sans-serif;
+}
+@media (prefers-color-scheme: dark){:root:not([data-theme="light"]){
+  --bg:#121311; --panel:#1a1b18; --ink:#eceae3; --muted:#9a9c94; --line:#2c2d29; --accent:#c4a56a; --btn:#eceae3; --btn-ink:#121311; --stage:#1f201d; color-scheme:dark}}
+:root[data-theme="dark"]{
+  --bg:#121311; --panel:#1a1b18; --ink:#eceae3; --muted:#9a9c94; --line:#2c2d29; --accent:#c4a56a; --btn:#eceae3; --btn-ink:#121311; --stage:#1f201d; color-scheme:dark}
+*{box-sizing:border-box}
+html{scroll-behavior:smooth}
+body{margin:0;background:var(--bg);color:var(--ink);font:16px/1.6 var(--f-b);-webkit-font-smoothing:antialiased;
+  padding-left:max(20px,env(safe-area-inset-left,0px));padding-right:max(20px,env(safe-area-inset-right,0px))}
+a{color:inherit}
+.wrap{max-width:1240px;margin:0 auto}
+.bar{display:flex;align-items:center;justify-content:space-between;gap:16px;padding-block:26px;border-bottom:1px solid var(--line)}
+.brand{display:flex;align-items:baseline;gap:10px;text-decoration:none;white-space:nowrap}
+.lg1{font:400 28px/1 var(--f-d);letter-spacing:.2em;text-transform:uppercase}
+.lg2{font:italic 400 24px/1 var(--f-d);color:var(--accent)}
+.bar nav{display:flex;gap:26px;font-size:13px;letter-spacing:.14em;text-transform:uppercase}
+.bar nav a{text-decoration:none;color:var(--muted)}.bar nav a:hover{color:var(--ink)}
+.eyebrow{font-size:12px;letter-spacing:.2em;text-transform:uppercase;color:var(--accent);margin:0 0 18px}
+h1,h2{font-family:var(--f-d);font-weight:400;margin:0;letter-spacing:-.01em;text-wrap:balance}
+h1{font-size:clamp(44px,7vw,96px);line-height:.98}
+h2{font-size:clamp(30px,4vw,48px);line-height:1.05}
+h1 em,h2 em{font-style:italic}
+.lead{font-size:18px;color:var(--muted);max-width:46ch;margin:22px 0 0}
+.btn{display:inline-flex;align-items:center;gap:10px;background:var(--btn);color:var(--btn-ink);border:1px solid var(--btn);padding:15px 28px;font:500 13px var(--f-b);letter-spacing:.16em;text-transform:uppercase;text-decoration:none;cursor:pointer;border-radius:0;transition:opacity .2s}
+.btn:hover{opacity:.82}.btn.ghost{background:transparent;color:var(--ink);border-color:var(--ink)}
+.btn:focus-visible,.chip:focus-visible,.tab:focus-visible,input:focus-visible,textarea:focus-visible,.vb button:focus-visible{outline:2px solid var(--accent);outline-offset:3px}
+@media(max-width:560px){.bar nav a{display:none}}
+/* hero */
+.hero{display:grid;grid-template-columns:minmax(0,1fr) minmax(0,1.05fr);gap:56px;align-items:center;padding-block:72px 88px}
+.hero img{width:100%;aspect-ratio:4/5;object-fit:cover;display:block}
+.hero .cta{display:flex;flex-wrap:wrap;gap:14px;margin-top:38px}
+@media(max-width:860px){.hero{grid-template-columns:1fr;padding-block:40px 56px;gap:32px}.hero img{aspect-ratio:4/3}}
+/* coleção */
+.sec{padding-block:80px;border-top:1px solid var(--line)}
+.sec>.head{display:flex;justify-content:space-between;align-items:end;gap:20px;margin-bottom:40px;flex-wrap:wrap}
+.grid{display:grid;grid-template-columns:repeat(auto-fill,minmax(340px,1fr));gap:40px 28px}
+.card{text-decoration:none;display:block}
+.card .ph{overflow:hidden;background:var(--stage)}
+.card img{width:100%;aspect-ratio:4/5;object-fit:cover;display:block;transition:transform .6s ease}
+.card:hover img{transform:scale(1.03)}
+.card h3{font:400 30px/1.1 var(--f-d);margin:16px 0 4px}
+.card p{margin:0;color:var(--muted);font-size:15px}
+.card .meta{margin-top:10px;font-size:12px;letter-spacing:.14em;text-transform:uppercase;color:var(--accent)}
+/* passos */
+.steps{display:grid;grid-template-columns:repeat(auto-fit,minmax(240px,1fr));gap:36px}
+.steps li{list-style:none;border-top:1px solid var(--ink);padding-top:18px}
+.steps ol{margin:0;padding:0;display:contents}
+.steps .n{font:400 14px var(--f-b);letter-spacing:.2em;color:var(--accent)}
+.steps h3{font:400 28px/1.1 var(--f-d);margin:12px 0 8px}.steps p{margin:0;color:var(--muted)}
+/* rodapé */
+footer{padding-block:48px 56px;border-top:1px solid var(--line);display:flex;flex-wrap:wrap;gap:20px 48px;justify-content:space-between;color:var(--muted);font-size:14px}
+footer b{color:var(--ink);font-weight:500}
+/* peça */
+.piece{display:grid;grid-template-columns:minmax(0,1.25fr) minmax(0,1fr);gap:64px;padding-block:48px 80px;align-items:start}
+@media(max-width:900px){.piece{grid-template-columns:1fr;gap:36px;padding-block:28px 56px}}
+.v3{position:relative;aspect-ratio:4/3;overflow:hidden;background:var(--stage);touch-action:pan-y;cursor:grab;user-select:none}
+.v3:active{cursor:grabbing}
+.v3 img{width:100%;height:100%;object-fit:cover;display:block;pointer-events:none}
+.vh{position:absolute;left:16px;bottom:14px;font-size:11px;letter-spacing:.18em;text-transform:uppercase;color:#4d4f49;background:rgba(255,255,255,.7);padding:5px 10px}
+.vb{position:absolute;right:14px;bottom:12px;display:flex;gap:8px}
+.vb button{width:42px;height:42px;border-radius:50%;border:1px solid rgba(0,0,0,.15);background:rgba(255,255,255,.88);color:#181916;font-size:20px;line-height:1;cursor:pointer}
+.note{font-size:13px;color:var(--muted);margin:10px 0 0}
+.gal{display:grid;grid-template-columns:repeat(auto-fit,minmax(220px,1fr));gap:14px;margin-top:14px}
+.gal figure{margin:0}.gal img{width:100%;aspect-ratio:4/3;object-fit:cover;display:block}
+.gal figcaption{font-size:12px;letter-spacing:.14em;text-transform:uppercase;color:var(--muted);margin-top:8px}
+.side{position:sticky;top:24px}
+@media(max-width:900px){.side{position:static}}
+dl{display:grid;grid-template-columns:auto 1fr;margin:30px 0 0}
+dt,dd{margin:0;padding:12px 0;border-top:1px solid var(--line)}
+dt{color:var(--muted);padding-right:24px;font-size:13px;letter-spacing:.12em;text-transform:uppercase}
+dd{font-size:16px}
+.fab{margin-top:34px}.fab h2{font-size:28px;margin-bottom:12px}
+.tabs{display:flex;flex-wrap:wrap;gap:22px;border-bottom:1px solid var(--line)}
+.tab{font:500 13px var(--f-b);letter-spacing:.16em;text-transform:uppercase;color:var(--muted);background:none;border:0;border-bottom:2px solid transparent;padding:10px 0;cursor:pointer;margin-bottom:-1px}
+.tab[aria-pressed="true"]{color:var(--ink);border-bottom-color:var(--ink)}
+.mat{font-size:14px;color:var(--muted);margin:12px 0}
+.sw{display:flex;flex-wrap:wrap;gap:12px}
+.chip{display:flex;flex-direction:column;align-items:center;gap:6px;width:84px;font:inherit;font-size:12px;line-height:1.25;text-align:center;color:var(--ink);background:none;border:0;padding:4px;cursor:pointer}
+.chip i{width:46px;height:46px;border-radius:50%;border:1px solid var(--line);display:block;transition:box-shadow .2s}
+.chip[aria-pressed="true"] i{box-shadow:0 0 0 2px var(--bg),0 0 0 3.5px var(--ink)}
+.rq{display:grid;gap:4px;margin-top:40px;padding-top:30px;border-top:1px solid var(--ink)}
+.rq h2{font-size:34px}
+.rq label{font-size:12px;letter-spacing:.14em;text-transform:uppercase;color:var(--muted);margin-top:14px}
+.rq input,.rq textarea{font:inherit;color:var(--ink);background:transparent;border:0;border-bottom:1px solid var(--line);padding:10px 0;width:100%;border-radius:0}
+.rq input:focus,.rq textarea:focus{border-bottom-color:var(--ink);outline:none}
+.rq .btn{margin-top:26px;justify-content:center}
+.st{margin:10px 0 0;font-size:14px;color:var(--muted)}
+@media(prefers-reduced-motion:reduce){*{transition:none!important;scroll-behavior:auto!important}}
+
+/* carrinho */
+.cartbtn{font:500 13px var(--f-b);letter-spacing:.14em;text-transform:uppercase;background:none;border:1px solid var(--ink);color:var(--ink);padding:9px 16px;cursor:pointer;display:inline-flex;gap:8px;align-items:center}
+.cartbtn .cartn{display:inline-grid;place-items:center;min-width:20px;height:20px;border-radius:10px;background:var(--ink);color:var(--bg);font-size:11px;letter-spacing:0}
+.addrow{display:flex;gap:12px;align-items:stretch;margin-top:22px;flex-wrap:wrap}
+.qty{display:inline-flex;border:1px solid var(--ink)}.qty button{width:44px;background:none;border:0;font-size:20px;color:var(--ink);cursor:pointer}.qty output{min-width:44px;display:grid;place-items:center;font-size:16px}
+.addrow .btn{flex:1;justify-content:center;min-width:200px}
+.pnote{font-size:13px;color:var(--muted);margin:10px 0 0}
+#cbk{position:fixed;inset:0;background:rgba(0,0,0,.45);z-index:60}
+#cdr{position:fixed;top:0;right:0;bottom:0;width:min(460px,100%);background:var(--bg);color:var(--ink);z-index:61;overflow-y:auto;padding:24px max(20px,env(safe-area-inset-right,0px)) 40px 24px;box-shadow:-10px 0 40px rgba(0,0,0,.2)}
+#cdr[hidden],#cbk[hidden]{display:none}
+#cdr .ch{display:flex;justify-content:space-between;align-items:center;border-bottom:1px solid var(--line);padding-bottom:14px;margin-bottom:14px}
+#cdr h2{font-size:32px}#cx{font-size:30px;line-height:1;background:none;border:0;color:var(--ink);cursor:pointer;padding:0 6px}
+.cn{font-size:14px;color:var(--muted);margin:8px 0}
+.cit{display:grid;grid-template-columns:34px 1fr auto auto;gap:12px;align-items:center;padding:12px 0;border-bottom:1px solid var(--line)}
+.cit>i{width:30px;height:30px;border-radius:50%;border:1px solid var(--line);display:block}
+.cin b{display:block;font-weight:500}.cin span{font-size:13px;color:var(--muted)}
+.cq{display:inline-flex;align-items:center;border:1px solid var(--line)}.cq button{width:30px;height:30px;background:none;border:0;font-size:18px;color:var(--ink);cursor:pointer}.cq output{min-width:26px;text-align:center}
+.crm{background:none;border:0;font-size:22px;color:var(--muted);cursor:pointer}
+#cf{display:grid;gap:4px;margin-top:18px}
+#cf label{font-size:12px;letter-spacing:.14em;text-transform:uppercase;color:var(--muted);margin-top:12px}
+#cf input,#cf textarea{font:inherit;color:var(--ink);background:transparent;border:0;border-bottom:1px solid var(--line);padding:9px 0;width:100%;border-radius:0}
+#cf input[type=file]{border:1px dashed var(--line);padding:12px;font-size:14px}
+#cf input:focus,#cf textarea:focus{border-bottom-color:var(--ink);outline:none}
+.ci{border:1px solid var(--line);padding:14px;margin:16px 0 0}.ci legend{padding:0 8px;font-size:14px}
+#cf .btn{margin-top:20px;justify-content:center}
+#cf .btn[disabled]{opacity:.5}
+</style>
+<div class="wrap">
+<header class="bar"><a class="brand" href="./"><span class="lg1">Indico</span><span class="lg2">Furniture</span></a><nav><a href="./#colecao">Coleção</a></nav></header>
+<main style="max-width:760px;padding-block:48px"><style>main h2{font-size:22px;margin:28px 0 8px}main p{line-height:1.65;margin:0 0 12px}</style><p class="eyebrow">Última atualização: 13 de novembro de 2026</p><h1>Termos de uso</h1>
+<p>Este site pertence e é operado por CREATUS MULTISERVICES LDA (NUIT 401833684), que opera a marca Veloura Interiors by Creatus. Ao usá-lo e ao enviar um pedido, aceita estes termos.</p>
+<h2>1. O que é este site</h2>
+<p>É uma montra de mobiliário feito por medida. Pode ver as peças, escolher o tecido e enviar um pedido de cotação. Enviar um pedido não é uma compra: a venda só fica concluída quando confirmarmos o pedido consigo.</p>
+<h2>2. Preços e cotação</h2>
+<p>Os preços apresentados são em meticais (MZN), por peça, no tecido escolhido, e incluem IVA. Ao enviar um pedido recebe por email uma cotação em PDF com os valores. A cotação é válida por 15 dias a partir da data de emissão. Reservamo-nos o direito de corrigir erros evidentes de preço e de atualizar preços de pedidos futuros.</p>
+<h2>3. Pagamento</h2>
+<p>O pagamento é feito por transferência bancária: 75% do valor no momento da compra e 25% na entrega. Os dados bancários constam da cotação. Não é pedido qualquer pagamento através deste site.</p>
+<h2>4. Prazo de entrega</h2>
+<p>Construímos a peça inteira em 10 dias. O prazo conta a partir da confirmação do pedido e do pagamento inicial, salvo indicação diferente na confirmação.</p>
+<h2>5. Peças feitas por medida</h2>
+<p>Cada peça é feita sob encomenda. As imagens do site são geradas por computador e servem de ilustração. As medidas indicadas são aproximadas e as cores no ecrã podem diferir do tecido real. Se precisar de uma medida ou de um tecido diferente, fale connosco antes de confirmar o pedido.</p>
+<h2>6. Cancelamentos, alterações e garantia</h2>
+<p>As condições de cancelamento, alteração e garantia de cada pedido são indicadas na confirmação do pedido. Fale connosco por WhatsApp (+258 85 756 6614) para qualquer dúvida antes de pagar.</p>
+<h2>7. Propriedade intelectual</h2>
+<p>Os textos, as imagens, os desenhos e a marca deste site pertencem a nós ou aos seus autores. Não pode copiá-los ou usá-los comercialmente sem a nossa autorização.</p>
+<h2>8. Utilização do site</h2>
+<p>Comprometa-se a dar informações verdadeiras nos pedidos e a não usar o site para fins ilícitos nem para tentar prejudicar o seu funcionamento. Podemos recusar ou ignorar pedidos que pareçam falsos ou abusivos.</p>
+<h2>9. Limitação de responsabilidade</h2>
+<p>Esforçamo-nos por manter o site correto e disponível, mas não garantimos que esteja sempre livre de erros ou interrupções. Na medida permitida pela lei, não respondemos por danos indiretos resultantes do uso do site.</p>
+<h2>10. Lei aplicável</h2>
+<p>Estes termos regem-se pela lei moçambicana. Qualquer litígio será submetido aos tribunais competentes de Maputo, sem prejuízo dos direitos que a lei reconhece ao consumidor.</p>
+<h2>11. Alterações e contacto</h2>
+<p>Podemos alterar estes termos. A versão em vigor é sempre a publicada nesta página. Contacto: WhatsApp +258 85 756 6614.</p></main>
+<footer><div><b>Contacto</b><br><a href="https://wa.me/258857566614">WhatsApp +258 85 756 6614</a></div><div><a href="termos">Termos de uso</a> · <a href="privacidade">Política de privacidade</a></div></footer></div>
